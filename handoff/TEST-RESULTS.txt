@@ -1,0 +1,98 @@
+
+battle-narrative-regression.cjs
+PASS auto speech, read-time facts, final-hit gate, paused boss, save/resume, progressive bestiary, unaffected early waves and retry deduplication
+
+character-assets.cjs
+PASS authored rig and clips warrior height 1.000 skinned meshes 1
+PASS authored rig and clips leshy height 1.000 skinned meshes 1
+
+defense-integration.cjs
+PASS actual app markup and full wave → narrative → rewards → evening cycle, third-wave boss, gear replacement, raid/story snapshots, exactly-once future diary notes
+PASS no healing from empty inventory and distinct Darkness/Leshy roles
+
+defense-regression.cjs
+PASS three increasing waves, exactly-once rewards/hooks, raid save state, paused damage immunity, loss checkpoint, atomic trade, unique upgrade, healing and future dialogue gating
+
+defense-scene.cjs
+wave 1 connected spawns 5 planning ms 65
+wave 2 connected spawns 8 planning ms 26
+wave 3 connected spawns 11 planning ms 44
+PASS real Three.js pawn geometry, connected spawn planning around houses/river via bridges, paused simulation, enemy selection/hit, actor removal and one victory
+
+domovoy-regression.cjs
+PASS authored Domovoy clips, local patrol, proximity/trade pause, night departure, hidden-night save reload, evening return and navigation revision
+
+forest-regression.cjs
+tall original full geometry preserved: 36682 triangles
+low original full geometry preserved: 45261 triangles
+small original full geometry preserved: 38563 triangles
+PASS shared surface maps, crown-only rim, matching wind/shadow shaders, instancing, LOD and removed-instance persistence
+
+forest-stream.cjs
+PASS fog-hidden trees allocate no cells, unchanged frames reuse batches, clearing streams new trees, cut trees never return, fog/save changes unload buffers; initial 600 of 1848 trees
+
+health-result-regression.cjs
+PASS current hearts only, empty slots absent, result only after battle, 18-second expiry and soft removal
+
+information-regression.cjs
+PASS timed quests, queued completions, gated dialogue/knowledge, active-slot auto-update and archived slots, exact flashback cover/resume, read-only diary, legacy wave notes, evidence deduplication and filtered bestiary
+
+leshy-regression.cjs
+PASS commander in all nights, unattackable leader, paused retreat, stable rig scale, third-wave boss gate, three hearts, dodge, death cutaway, saved boss phase, full retry and exactly-once settlement
+
+night-effect-runtime.cjs
+PASS native effect factory and all three full animation timelines
+
+night-intro-regression.cjs
+PASS preparation gate keeps visible number animated until preparation is ready
+PASS correct three authored effects, no looping, seven-second completion, hidden-tab pause, input blocking and cleanup
+
+night-start-regression.cjs
+PASS direct intro, parallel preparation, duplicate guard, no early combat, effect failure recovery, preparation failure returns evening
+
+oak-story-regression.cjs
+PASS oak encounter, optional exit, resumed reading, gated diary, exactly-once completion, saved flags, unchanged day, existing illustrations
+
+oak-wave-regression.cjs
+PASS after-wave topic, gated bestiary, progressive facts, resumed dialogue, unique diary entry, read topic removal and saved knowledge
+
+responsive-regression.cjs
+PASS 1920×1080: observer replacement, dock collapse and scene centre in unobstructed vertical area
+PASS 1536×864: observer replacement, dock collapse and scene centre in unobstructed vertical area
+PASS 1366×768: observer replacement, dock collapse and scene centre in unobstructed vertical area
+PASS 1280×720: observer replacement, dock collapse and scene centre in unobstructed vertical area
+PASS 2560×1440: observer replacement, dock collapse and scene centre in unobstructed vertical area
+PASS 3840×2160: observer replacement, dock collapse and scene centre in unobstructed vertical area
+PASS 2560×1080: observer replacement, dock collapse and scene centre in unobstructed vertical area
+PASS 3440×1440: observer replacement, dock collapse and scene centre in unobstructed vertical area
+PASS 1280×1024: observer replacement, dock collapse and scene centre in unobstructed vertical area
+PASS 1920×1200: observer replacement, dock collapse and scene centre in unobstructed vertical area
+PASS 390×844: observer replacement, dock collapse and scene centre in unobstructed vertical area
+PASS 844×390: observer replacement, dock collapse and scene centre in unobstructed vertical area
+PASS 960×540: observer replacement, dock collapse and scene centre in unobstructed vertical area
+
+scene-light-budget.cjs
+PASS 120-light scene caps real render lights at eight, moves focus, respects hidden parents/disabled lights and preserves directional lighting; dialogue scrollbars removed
+
+state-regression.cjs
+PASS partial-save migration, preserved progression, restored night/outcome dialogs, missing-outcome fallback, duplicate-night guard
+
+village-assets-regression.cjs
+route 8 4 10
+route 14 51 82
+route 0 -53 79
+route -39 30 66
+route -30 22 52
+route -23 25 53
+route 25 -31 47
+route -32 -17 66
+route 13 50 81
+PASS all eight imported surfaces, four separate totems, wind shaders, simple collision geometry, bridges/oak/trader/forest/circle routes and gate bypass
+
+village-progression-regression.cjs
+PASS full three-stage preparation, zero-stock recovery, wallet/save migration, atomic repair/trade, guard/radius effects, one-time fuel/retry, ritual resume/skip/read and idempotent circle retirement
+
+water-instancing-regression.cjs
+PASS removing a placement releases owned geometry once and retains shared geometry
+PASS 112 independent water-object motions and fades match previous scene; 4 instanced draws; shared ripple geometry disposed once
+All tests passed

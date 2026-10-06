@@ -1,0 +1,50 @@
+/* Defense and commerce extend the canonical typography and surface tokens. */
+.defense-status{position:absolute;left:50%;top:110px;transform:translateX(-50%);width:min(530px,42vw);padding:var(--space-3) var(--space-4);z-index:5;pointer-events:none;border-color:var(--color-accent-soft);background:var(--color-surface)}
+.defense-heading{display:flex;align-items:center;gap:var(--space-3)}
+.defense-heading .brand-icon{width:var(--icon-md);height:var(--icon-md)}
+.defense-heading strong{font-family:var(--font-display);font-size:var(--text-subtitle);color:var(--color-text)}
+.defense-heading>span{margin-left:auto;font-size:var(--text-small);color:var(--color-text-muted)}
+.defense-status p{margin:var(--space-2) 0;font-size:var(--text-small);line-height:1.35}
+.defense-status small{font-size:var(--text-caption);color:var(--color-text-muted)}
+.defense-tray .tray-tabs strong{font-family:var(--font-display);font-size:var(--text-subtitle);color:var(--color-text)}
+.equipment-cards{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+.equipment-cards .card{display:flex;align-items:center;gap:var(--space-4);min-height:115px;padding:var(--space-4);background:var(--color-surface-raised)}
+.equipment-icon{display:flex;width:var(--space-7);flex:none;align-items:center;justify-content:center}
+.equipment-icon .icon{width:40px;height:40px;filter:sepia(.45) saturate(1.8)}
+.equipment-cards .card-copy{padding:0}
+.equipment-cards .card strong{font-size:var(--text-subtitle)}
+.equipment-cards .card small{font-size:var(--text-small);margin-top:var(--space-2)}
+.passive-equipment{cursor:default!important}
+.modal-domovoyTrade{width:min(1040px,calc(100vw - 64px));max-height:86vh;overflow:auto;--voice:#a6b17c}
+.modal-domovoyTrade .modal-head{margin-bottom:var(--space-4)}
+.trade-wallet{display:flex;flex-wrap:wrap;gap:var(--space-3);padding:var(--space-3);background:var(--color-surface-raised);border-radius:var(--radius-control)}
+.trade-wallet .res{padding:0}
+.trade-tabs{display:flex;gap:var(--space-3);margin:var(--space-4) 0}
+.trade-tabs .active{border-color:var(--color-gold);color:var(--color-gold)}
+.trade-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+.trade-card{display:flex;flex-direction:column;padding:var(--space-4);gap:var(--space-3)}
+.trade-item-title{display:flex;align-items:center;gap:var(--space-3)}
+.trade-item-title .icon{width:var(--icon-lg);height:var(--icon-lg);flex:none}
+.trade-item-title h3{margin:0;font-size:var(--text-subtitle)}
+.trade-card p{font-size:var(--text-body);line-height:1.35;margin:0;flex:1}
+.trade-price{display:flex;gap:var(--space-3);flex-wrap:wrap}
+.trade-help{font-size:var(--text-small);color:var(--color-text-muted);margin:var(--space-4) 0 0}
+.prototype-story-label{position:absolute;top:var(--space-4);left:50%;transform:translateX(-50%);font-size:var(--text-caption);color:var(--color-text-muted);background:var(--color-surface);padding:var(--space-2) var(--space-3);z-index:2}
+.voice-shadow{--voice:#d06b85;--voice-glow:#6d253c}
+.resident-request{display:flex;align-items:center;gap:var(--space-2);margin:var(--space-3) 0}
+@media(max-width:1000px){.defense-status{top:160px;width:48vw;max-width:440px;left:auto;right:var(--space-4);transform:none}.defense-status small{display:none}.equipment-cards .card{gap:var(--space-2);padding:var(--space-3)}.equipment-icon{width:var(--icon-lg)}.equipment-cards .card strong{font-size:var(--text-body)}.equipment-cards .card small{font-size:var(--text-caption)}}
+@media(max-width:640px){.defense-status{top:190px;right:var(--space-2);width:calc(100vw - 16px);padding:var(--space-2) var(--space-3)}.defense-status p{font-size:var(--text-caption)}.defense-heading strong{font-size:var(--text-body)}.defense-heading>span{font-size:var(--text-caption)}.equipment-cards{grid-template-columns:1fr!important}.equipment-cards .card{min-height:72px}.equipment-cards .card small{margin:0}.modal-domovoyTrade{width:calc(100vw - 24px);max-height:90vh}.trade-grid{grid-template-columns:1fr}.prototype-story-label{top:62px;width:max-content;max-width:90vw;text-align:center}}
+@media(prefers-reduced-motion:reduce){.defense-status,.trade-card{transition:none}}
+/* Equipment does not inherit the illustration column reserved for market cards. */
+.defense-tray .card-copy{width:auto;min-width:0;margin-left:0;min-height:0;padding:0}
+@media(max-width:1000px){.equipment-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+
+.domovoy-gifts{margin-top:var(--space-5);padding-top:var(--space-4);border-top:1px solid var(--color-border)}.domovoy-gifts .row{flex-wrap:wrap}.domovoy-gifts p{font-size:var(--text-small)}.domovoy-gifts .ghost{gap:var(--space-2);flex-wrap:wrap}.domovoy-gifts small{font-size:var(--text-caption);color:var(--color-text-muted)}
+
+.night-intro-overlay{position:fixed;inset:0;z-index:240;display:block!important;background:radial-gradient(ellipse at center,rgba(12,6,8,.08),rgba(5,8,10,.24));opacity:0;transition:none;pointer-events:auto;will-change:opacity}
+.night-effect-host{position:absolute;inset:0;background:transparent;pointer-events:none}
+
+.defense-status{transition:opacity .4s ease,transform .4s ease}.defense-status.leaving{opacity:0;transform:translate(-50%,-6px)}
+
+/* Authored unread conversations: world markers sit above their speaker/home. */
+.conversation-markers{position:absolute;inset:0;pointer-events:none;z-index:12}.conversation-markers[hidden]{display:none}.conversation-marker{position:absolute;transform:translate(-50%,-100%);width:44px;height:44px;display:grid;place-items:center;pointer-events:auto;border:1px solid #c75948;border-radius:50%;background:#261512e6;box-shadow:0 0 16px #c54b3b55;cursor:pointer;animation:conversation-pulse 2.8s ease-in-out infinite}.conversation-marker[hidden]{display:none}.conversation-marker img{width:28px;height:28px;filter:brightness(0) saturate(100%) invert(48%) sepia(33%) saturate(1420%) hue-rotate(323deg)}@keyframes conversation-pulse{50%{box-shadow:0 0 24px #dc645777;opacity:.72}}@media(prefers-reduced-motion:reduce){.conversation-marker{animation:none}}

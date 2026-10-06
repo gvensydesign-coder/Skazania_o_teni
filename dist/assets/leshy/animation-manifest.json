@@ -1,0 +1,135 @@
+[
+  {
+    "name": "Idle",
+    "label": "Стойка",
+    "duration": 4.0,
+    "loop": true,
+    "events": []
+  },
+  {
+    "name": "Walk",
+    "label": "Ходьба",
+    "duration": 0.9,
+    "loop": true,
+    "events": [
+      {
+        "time": 0.0,
+        "name": "step_L"
+      },
+      {
+        "time": 0.45,
+        "name": "step_R"
+      }
+    ],
+    "speed": 0.556
+  },
+  {
+    "name": "Run",
+    "label": "Бег",
+    "duration": 0.5333,
+    "loop": true,
+    "events": [
+      {
+        "time": 0.0,
+        "name": "step_L"
+      },
+      {
+        "time": 0.267,
+        "name": "step_R"
+      }
+    ],
+    "speed": 1.969
+  },
+  {
+    "name": "Jump",
+    "label": "Прыжок",
+    "duration": 1.6,
+    "loop": false,
+    "events": [
+      {
+        "time": 0.52,
+        "name": "takeoff"
+      },
+      {
+        "time": 1.06,
+        "name": "land"
+      }
+    ]
+  },
+  {
+    "name": "Attack",
+    "label": "Удар",
+    "duration": 1.3333,
+    "loop": false,
+    "events": [
+      {
+        "time": 0.7,
+        "name": "hit"
+      }
+    ]
+  },
+  {
+    "name": "Point",
+    "label": "Указание вперёд",
+    "duration": 2.6,
+    "loop": false,
+    "events": []
+  },
+  {
+    "name": "Wave",
+    "label": "Приветствие",
+    "duration": 2.8,
+    "loop": false,
+    "events": []
+  },
+  {
+    "name": "Talk",
+    "label": "Разговор",
+    "duration": 5.0,
+    "loop": true,
+    "events": []
+  },
+  {
+    "name": "Crouch",
+    "label": "Присесть",
+    "duration": 3.0,
+    "loop": false,
+    "events": []
+  },
+  {
+    "name": "PickUp",
+    "label": "Поднять предмет",
+    "duration": 3.4,
+    "loop": false,
+    "events": [
+      {
+        "time": 1.25,
+        "name": "grab"
+      }
+    ]
+  },
+  {
+    "name": "Hit",
+    "label": "Получить удар",
+    "duration": 1.1,
+    "loop": false,
+    "events": [
+      {
+        "time": 0.1,
+        "name": "impact"
+      }
+    ]
+  },
+  {
+    "name": "Death",
+    "label": "Падение",
+    "duration": 3.0,
+    "loop": false,
+    "events": [
+      {
+        "time": 1.62,
+        "name": "ground"
+      }
+    ]
+  }
+]

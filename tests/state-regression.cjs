@@ -1,0 +1,13 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const source=fs.readFileSync('dist/app.js','utf8');
+const extract=(a,b)=>source.slice(source.indexOf(a),source.indexOf(b,source.indexOf(a)));
+const ctx={PEOPLE:[],baseSettings:()=>({keys:{journal:'д'}}),structuredClone};vm.createContext(ctx);
+vm.runInContext(extract('function initial(){','let game;try{')+';globalThis.game=initial();',ctx);
+vm.runInContext(`game=hydrateState({hero:{hp:3},resources:{wood:99},story:{churchMemoryCompleted:true},ui:{nightCount:2}});`,ctx);
+assert.equal(ctx.game.hero.hp,3);assert.equal(ctx.game.resources.wood,99);assert.equal(ctx.game.resources.grain,35);assert.equal(ctx.game.ui.nightCount,2);assert(ctx.game.story.churchMemoryCompleted);assert(Array.isArray(ctx.game.story.explored));assert(ctx.game.settings.keys.journal);
+ctx.game.screen='game';ctx.game.phase='event';vm.runInContext('restorePhaseModal()',ctx);assert.equal(ctx.game.ui.openModal.type,'night');
+ctx.game.phase='outcome';ctx.game.ui.openModal=null;ctx.game.ui.outcome={title:'Test',text:'Result',lines:['Already awarded']};vm.runInContext('restorePhaseModal()',ctx);assert.equal(ctx.game.ui.openModal.title,'Test');assert.equal(ctx.game.ui.openModal.lines.length,1);
+ctx.game.ui.openModal=null;ctx.game.ui.outcome=null;vm.runInContext('restorePhaseModal()',ctx);assert.equal(ctx.game.ui.openModal.lines.length,0);
+vm.runInContext(extract('function chooseNight(index){','function dawn(){'),ctx);const before=JSON.stringify(ctx.game);vm.runInContext('chooseNight(0)',ctx);assert.equal(JSON.stringify(ctx.game),before);
+ctx.game.phase='day';ctx.game.ui.openModal=null;vm.runInContext('restorePhaseModal()',ctx);assert.equal(ctx.game.ui.openModal,null);
+console.log('PASS partial-save migration, preserved progression, restored night/outcome dialogs, missing-outcome fallback, duplicate-night guard');

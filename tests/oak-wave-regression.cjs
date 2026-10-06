@@ -1,0 +1,24 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert'),R=require('../dist/defense-rules.js');
+const fakeNode={classList:{add(){},remove(){}},querySelector:()=>null};
+const ctx={window:{DefenseRules:R,WAVE_CONTENT:{oak:{},residents:{}},matchMedia:()=>({matches:true}),village3D:{canTalkOak:()=>true,cancel(){}}},DefenseRules:R,structuredClone,localStorage:{getItem:()=>null,setItem(){}},document:{querySelector:()=>fakeNode},setTimeout:()=>0,clearTimeout(){},clearInterval(){},cancelAnimationFrame(){},console};
+vm.createContext(ctx);
+for(const name of ['oak-story.js','defense-ui.js'])vm.runInContext(fs.readFileSync('dist/'+name,'utf8'),ctx);
+const src=fs.readFileSync('dist/app.js','utf8');
+vm.runInContext(src.slice(0,src.indexOf("app.addEventListener('pointermove'")),ctx);
+const run=s=>vm.runInContext(s,ctx);
+run("render=()=>{};notify=()=>{};go=screen=>{game.screen=screen;game.ui.openModal=null};globalThis.g=game;game.screen='game';game.ui.sessionStarted=true;migrateDefense();");
+
+assert.equal(run("readyWaveTopics('oak').length"),0);
+assert(!run('oakBestiary()&&game.bestiary.ancient_oak.discovered'));
+run("game.story.oakFirstCompleted=true;game.story.oakRootKnown=true;game.story.waveTopics=[{id:'oak-wave-2',wave:2,read:false}];game.defense.completed=2;game.defense.stage='preparation';oakBestiary();beginWaveConversation('oak','oak-wave-2')");
+assert(ctx.g.bestiary.ancient_oak.discovered);assert(!run('oakBestiary()').includes('охотятся'));
+const lines=ctx.window.WAVE_CONTENT.oak[2].lines;
+const target=lines.findIndex(l=>l.oakFact==='child-target'),fear=lines.findIndex(l=>l.oakFact==='forest-fear');
+run(`game.ui.novelIndex=${target};game.ui.textShown=100000;nextNovel()`);
+assert.deepEqual(Array.from(ctx.g.story.oakFacts),['child-target']);assert(run('oakBestiary()').includes('охотятся'));assert(!run('oakBestiary()').includes('будущей угрозой'));
+run('cancelWaveConversation();beginWaveConversation("oak","oak-wave-2")');assert.equal(ctx.g.ui.novelIndex,target+1);assert(!ctx.g.story.waveTopics[0].read);
+run(`game.ui.novelIndex=${fear};game.ui.textShown=100000;nextNovel()`);assert(run('oakBestiary()').includes('будущей угрозой'));
+run('game.ui.novelIndex=waveConversationLines().length-1;game.ui.textShown=100000;nextNovel();finishWaveConversation()');
+run('updateQuests()');assert.equal(ctx.g.quests.find(q=>q.id==='talk-oak-wave-2').done,true);assert(ctx.g.story.waveTopics[0].read);assert.equal(ctx.g.dialogueNotes.filter(n=>n.id==='oak-wave-2').length,1);assert.equal(run("readyWaveTopics('oak').length"),0);assert.equal(run("diaryPages().filter(n=>n.id==='note:oak-wave-2').length"),1);
+run('globalThis.saved=snapshot()');assert.equal(ctx.saved.story.oakFacts.length,2);assert(ctx.saved.story.waveTopics[0].read);
+console.log('PASS after-wave topic, gated bestiary, progressive facts, resumed dialogue, unique diary entry, read topic removal and saved knowledge');

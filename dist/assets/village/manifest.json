@@ -1,0 +1,114 @@
+[
+  {
+    "id": "palisade",
+    "source": "Деревянный+частокол",
+    "triangles": 28943,
+    "source_vertices": 35357,
+    "vertices": 35357,
+    "parts": 1,
+    "size": [
+      0.99951171875,
+      0.45751953125,
+      0.2495116889476776
+    ],
+    "geometry": "lossless; original triangles, normals and UV retained"
+  },
+  {
+    "id": "market_ruin",
+    "source": "Заброшенный+торговый+ряд",
+    "triangles": 47598,
+    "source_vertices": 54341,
+    "vertices": 54341,
+    "parts": 1,
+    "size": [
+      0.99951171875,
+      0.37451171875,
+      0.3940429091453552
+    ],
+    "geometry": "lossless; original triangles, normals and UV retained"
+  },
+  {
+    "id": "house_ruin",
+    "source": "Разруешенный+дом",
+    "triangles": 31468,
+    "source_vertices": 36639,
+    "vertices": 36639,
+    "parts": 1,
+    "size": [
+      0.81787109375,
+      0.74365234375,
+      0.99951171875
+    ],
+    "geometry": "lossless; original triangles, normals and UV retained"
+  },
+  {
+    "id": "tent_ruin",
+    "source": "Разрушенная+палатка",
+    "triangles": 32089,
+    "source_vertices": 38664,
+    "vertices": 38664,
+    "parts": 1,
+    "size": [
+      0.90283203125,
+      0.76806640625,
+      0.99951171875
+    ],
+    "geometry": "lossless; original triangles, normals and UV retained"
+  },
+  {
+    "id": "gate_ruin",
+    "source": "Разрушенные+ворота+в+деревню",
+    "triangles": 53793,
+    "source_vertices": 55528,
+    "vertices": 55528,
+    "parts": 1,
+    "size": [
+      0.99951171875,
+      0.92138671875,
+      0.46630859375
+    ],
+    "geometry": "lossless; original triangles, normals and UV retained"
+  },
+  {
+    "id": "circle",
+    "source": "Ритуальный+круг",
+    "triangles": 48926,
+    "source_vertices": 51280,
+    "vertices": 51280,
+    "parts": 1,
+    "size": [
+      0.99951171875,
+      0.51025390625,
+      0.93505859375
+    ],
+    "geometry": "lossless; original triangles, normals and UV retained"
+  },
+  {
+    "id": "tower",
+    "source": "Смотровая+вышка",
+    "triangles": 26668,
+    "source_vertices": 34678,
+    "vertices": 34678,
+    "parts": 1,
+    "size": [
+      0.63427734375,
+      0.99951171875,
+      0.57958984375
+    ],
+    "geometry": "lossless; original triangles, normals and UV retained"
+  },
+  {
+    "id": "totem",
+    "source": "Тотемы_01",
+    "triangles": 49694,
+    "source_vertices": 54134,
+    "vertices": 54134,
+    "parts": 4,
+    "size": [
+      0.94677734375,
+      0.99951171875,
+      0.80322265625
+    ],
+    "geometry": "lossless; original triangles, normals and UV retained"
+  }
+]

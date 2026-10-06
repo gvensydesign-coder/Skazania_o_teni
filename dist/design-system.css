@@ -1,0 +1,469 @@
+@font-face{font-family:'Bylina';src:url('fonts/Bylina-Regular.woff') format('woff');font-style:normal;font-weight:400;font-display:swap}
+/* Canonical design tokens. Conditional responsive overrides remain below. */
+:root{
+ --color-bg:#090d0e;
+ --color-surface:#111719ed;
+ --color-surface-raised:#192021ed;
+ --color-surface-hover:#29302de8;
+ --color-text:#eee7db;
+ --color-text-muted:#b8c0b6;
+ --color-border:#a4ada66b;
+ --color-accent:#a8372b;
+ --color-accent-hover:#c34b35;
+ --color-accent-soft:#86271d;
+ --color-focus:#ffec65;
+ --color-gold:#ded04a;
+ --color-success:#5ad4d0;
+ --color-danger:#d85b43;
+ --space-1:4px;
+ --space-2:8px;
+ --space-3:12px;
+ --space-4:16px;
+ --space-5:24px;
+ --space-6:32px;
+ --space-7:48px;
+ --radius-control:3px 9px 3px 9px;
+ --radius-panel:3px 11px 3px 11px;
+ --font-ui:'Bylina',Arial,sans-serif;
+ --font-display:var(--font-story);
+ --font-story:'Skazanie','PT Serif',Georgia,serif;
+ --text-caption:15px;
+ --text-small:17.5px;
+ --text-body:22px;
+ --text-feedback:var(--text-body);
+ --text-subtitle:25px;
+ --icon-xs:16px;
+ --icon-sm:20px;
+ --icon-md:24px;
+ --icon-lg:32px;
+ --motion-fast:.18s;
+ --motion-base:.28s;
+ --bg:var(--color-bg);
+ --panel:var(--color-surface);
+ --panel2:var(--color-surface-raised);
+ --line:var(--color-border);
+ --bone:var(--color-text);
+ --muted:var(--color-text-muted);
+ --red:var(--color-accent);
+ --reddeep:var(--color-accent-soft);
+ --gold:var(--color-gold);
+ --text-dialogue:27px;
+ --text-dialogue-action:22.5px;
+ --text-dialogue-novel:clamp(28px,calc(2.25vw + 5px),35px);
+ --text-rules:22px;
+ --motion-rule:480ms;
+ --text-action-choice:var(--text-dialogue);
+ --color-orange:#c96a0b;
+ --color-orange-deep:#652d19;
+ --color-yellow:#ffec65;
+ --color-yellow-deep:#bda91a;
+ --color-teal:#5ad4d0;
+ --color-teal-deep:#318a7d;
+ --color-olive:#85813f;
+ --color-olive-deep:#494123;
+ --narrative-button-height:56px;
+ --narrative-button-padding-y:15px;
+ --narrative-button-padding-x:22px;
+ --narrative-button-icon:24px;
+}
+/* Shared interface foundations. Keep screen-specific art direction in style.css. */
+@font-face{font-family:'Skazanie';src:url('fonts/Skazanie-Regular.woff') format('woff');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'Skazanie Stone';src:url('fonts/SkazanieStone-Regular.woff') format('woff');font-style:normal;font-weight:400;font-display:swap}
+@font-palette-values --skazanie-bone{font-family:'Skazanie Stone';base-palette:2}
+
+
+.app h1,.app h2,.app h3,.app .subhead,.app .title{font-family:var(--font-story);font-weight:400}
+
+/* Interactive components share touch targets, keyboard focus and state behavior. */
+:where(.button,.ghost,.nav-button,.icon-button){min-height:44px;border-radius:var(--radius-control);font-size:var(--text-small);line-height:1.3;transition:background var(--motion-base) ease,border-color var(--motion-base) ease,color var(--motion-base) ease,box-shadow var(--motion-base) ease,transform var(--motion-fast) ease}
+:where(.button,.ghost,.nav-button,.icon-button):not(:disabled):active{transform:translateY(1px)}
+.button:not(:disabled):hover{border-color:var(--color-accent-hover);background:var(--color-accent-hover)}
+:where(.ghost,.nav-button,.icon-button):not(:disabled):hover{background:var(--color-surface-hover);border-color:var(--color-gold)}
+:where(.ghost,.nav-button,.icon-button).active{border-color:var(--color-accent);background:#8a4e4840;color:var(--color-text)}
+:where(button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid var(--color-focus);outline-offset:3px}
+:where(button):disabled{opacity:.55;cursor:not-allowed;filter:saturate(.55);transform:none}
+:where(.card,.skill,.hero-skill-icon,.save-slot,.story-save,.route-card,.rule-card){border-radius:var(--radius-panel);transition:border-color var(--motion-base) ease,box-shadow var(--motion-base) ease,background var(--motion-base) ease}
+:where(button.card,button.route-card,button.save-slot):not(:disabled):hover{border-color:var(--color-gold);box-shadow:0 12px 32px #0008}
+:where(.completed,[data-state="completed"]){--state-color:var(--color-success)}
+:where(.locked,[data-state="locked"]){--state-color:var(--color-text-muted)}
+:where(.active,[data-state="active"]){--state-color:var(--color-accent)}
+
+/* Captions remain legible in the HUD, dialogue and content panels. */
+.small{font-size:var(--text-small)}.tiny,.eyebrow{font-size:var(--text-caption)}
+:where(.quest-label,.quest-content small,.hero-level,.route-status,.story-save-body label,.atlas-legend,.diary-task small,.diary-events p,.diary-kicker,.diary-folio,.menu-foot,.menu-list small,.dialogue-footer .eyebrow){font-size:var(--text-caption);line-height:1.4}
+.choice-copy>span{font-size:var(--text-small);line-height:1.4}
+.choice-copy small{font-size:var(--text-caption);line-height:1.4}
+.res{font-size:var(--text-caption);line-height:1.35}
+.screen-head h1{line-height:1.12}
+
+/* Prologue and dialogue use the same palette while keeping each voice distinct. */
+.cinematic-bottom{max-width:760px}
+.cinematic-bottom h1{font-size:clamp(36px,5vw,64px)}
+.cinematic-bottom p{max-width:700px;font-size:clamp(23.75px,2.75vw,36.25px);line-height:1.48;text-wrap:pretty}
+.voice-mother{--voice:#d5ae9f;--voice-glow:#b9807052;--voice-soft:#a861561f}
+.voice-father{--voice:#b6bba6;--voice-glow:#84927b4d;--voice-soft:#8390701e}
+.voice-intruder{--voice:#bf7972;--voice-glow:#a6474759;--voice-soft:#8b393326}
+.voice-feofan{--voice:#c4b698;--voice-glow:#a08c664d;--voice-soft:#a28b6220}
+.dialogue-text{max-width:980px;text-wrap:pretty}
+.novel .dialogue-wrap{bottom:clamp(18px,3vh,30px)}
+.novel .dialogue-wrap.is-short{bottom:clamp(8px,1.4vh,15px)}
+.novel .dialogue-box{padding:16px 22px 14px}
+.novel .dialogue-text{width:100%;max-width:none;min-height:0;margin:10px 0 12px;line-height:1.45;text-wrap:wrap;overflow-wrap:break-word}
+
+.novel .dialogue-wrap.is-short .dialogue-box{padding:12px 20px 10px}
+.novel .dialogue-wrap.is-short .dialogue-text{margin:5px 0 7px}
+.image-bg.story-art-enter{animation:story-art-enter .46s ease-out both}
+@keyframes story-art-enter{from{opacity:.38;transform:scale(1.018)}to{opacity:1;transform:scale(1)}}
+@media(max-width:700px){.cinematic-bottom{max-width:none}.cinematic-bottom p{font-size:25px}.dialogue-text{line-height:1.5}}
+
+/* One icon grid with explicit sizes for compact and prominent contexts. */
+.ui-icon{display:block;width:var(--icon-sm);height:var(--icon-sm);object-fit:contain;flex:none;vertical-align:middle}
+.icon.sm,.icon-size-xs{width:var(--icon-xs);height:var(--icon-xs)}
+.icon,.icon-size-sm{width:var(--icon-sm);height:var(--icon-sm)}
+.icon-size-md{width:var(--icon-md);height:var(--icon-md)}
+.icon.lg,.icon-size-lg{width:var(--icon-lg);height:var(--icon-lg)}
+:where(.button,.ghost,.nav-button,.icon-button,.atlas-pin,.route-status,.quest-toggle)>.ui-icon{width:var(--icon-sm);height:var(--icon-sm)}
+.choice-icon .ui-icon{width:28px;height:28px}
+.card>.ui-icon{width:var(--icon-lg);height:var(--icon-lg)}
+.hud-time-icon .ui-icon,.hud-links .ui-icon{width:var(--icon-sm);height:var(--icon-sm)}
+.quest-indicator .ui-icon,.quest-chevron .ui-icon{width:var(--icon-xs);height:var(--icon-xs)}
+.tray-head .tray-toggle{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);white-space:nowrap;line-height:1;min-height:44px}
+.tray-head .tray-toggle .ui-icon{display:block;width:var(--icon-xs);height:var(--icon-xs);margin:0;flex:none}
+.life-heart.empty{fill:#313a37;opacity:.46;filter:none}
+.hero-hud .life-hearts{flex-wrap:nowrap;max-width:100%;overflow:hidden}
+
+/* The author's lettering marks menu pages and narrative voices. Body copy and the game HUD stay readable in their existing faces. */
+.menu-list button{font-family:var(--font-ui);font-weight:400;font-size:clamp(20px,1.9375vw,25px);line-height:1.2;letter-spacing:.025em}
+.menu-list button small{font-family:var(--font-ui);letter-spacing:0;text-transform:none}
+.screen-shell .screen-head h1,.rules-intro h2{font-family:var(--font-story);font-weight:400;letter-spacing:.015em;line-height:1.2}
+.diary-leaf h2,.diary-contents-title{font-family:var(--font-story);font-weight:400;line-height:1.22}
+.cinematic-bottom h1,.chapter-panel h1{font-family:'Skazanie Stone',var(--font-story);font-palette:--skazanie-bone;font-weight:400;letter-spacing:.015em;line-height:1.2}
+.novel .dialogue-box .speaker{display:inline-flex;align-items:center;gap:10px;border-left:0;padding-left:0;font-family:var(--font-story);font-weight:400;font-size:clamp(24px,2.4vw,31px);letter-spacing:.025em;line-height:1.3}
+.novel .dialogue-box .speaker::after{content:none}
+.novel .dialogue-box[class*="voice-"]{box-shadow:0 25px 90px #000b,inset 0 1px 0 #e7e4db18}
+.speaker-mark{display:block;width:40.5px;height:40.5px;flex:none;background:var(--voice,#c0a989);mask:var(--speaker-icon) center/contain no-repeat;-webkit-mask:var(--speaker-icon) center/contain no-repeat;filter:drop-shadow(0 0 5px var(--voice-glow,#ad9a7040))}
+.modal .conversation-speaker{display:inline-flex;align-items:center;gap:10px;border-left:0;padding-left:0}
+.modal .modal-head h2{font-family:var(--font-story);font-weight:400;font-size:clamp(25px,2.6vw,34px);letter-spacing:.02em;line-height:1.25;overflow-wrap:break-word}
+@media(max-width:700px){.menu-list button{font-size:21.25px}.cinematic-bottom h1,.chapter-panel h1{line-height:1.25}.novel .dialogue-box .speaker{font-size:24px}.speaker-mark{width:36px;height:36px}}
+@media(max-width:700px){
+  .novel .dialogue-box{padding:13px 16px 12px}
+  .novel .dialogue-wrap.is-short .dialogue-box{padding:10px 14px 9px}
+  .novel .dialogue-text{margin:7px 0 10px}
+  .novel .dialogue-wrap.is-short .dialogue-text{margin:4px 0 6px}
+}
+
+/* The HUD reflows before its three groups collide. */
+.hud-top{grid-template-columns:minmax(330px,360px) minmax(0,1fr) minmax(190px,235px);gap:var(--space-4)}
+.hud-player,.hud-resources,.hud-links{min-width:0}
+.hud-player-row{grid-template-columns:minmax(0,220px) minmax(0,1fr)}
+.hud-time small{font-size:var(--text-caption)}
+@media(max-width:1100px){
+  .hud-top{grid-template-columns:minmax(270px,300px) minmax(0,1fr);gap:var(--space-2)}
+  .hud-player{grid-column:1;grid-row:1 / span 2}
+  .hud-player-row{grid-template-columns:minmax(0,190px) minmax(0,1fr)}
+  .hud-player .quest-hud{width:190px}
+  .hud-resources{grid-column:2;grid-row:1}
+  .hud-top .hud-links{grid-column:2;grid-row:2;justify-content:flex-end}
+  .hud-time{min-height:80px}
+}
+@media(max-width:720px){
+  .hud-top{top:var(--space-3);left:var(--space-3);right:var(--space-3);grid-template-columns:minmax(0,1fr);gap:var(--space-2)}
+  .hud-player,.hud-resources{grid-column:1;grid-row:auto}
+  .hud-top .hud-links{grid-column:1;grid-row:auto}
+  .hud-player-row{grid-template-columns:minmax(0,190px) minmax(88px,102px);gap:var(--space-2);max-width:300px}
+  .hud-player .quest-hud{width:min(190px,100%)}
+  .hud-time{min-height:80px;padding:var(--space-2)}
+  .hud-time strong{font-size:17.5px}.hud-time small{font-size:var(--text-caption)}
+  .hud-time-icon{height:20px}.hud-time-icon .ui-icon{width:20px;height:20px}
+  .hud-resources .resource-hud{max-width:none;width:100%}
+  .hud-links{justify-content:flex-end;flex-wrap:wrap;gap:var(--space-1)}
+  .hud-links button{min-width:44px;min-height:44px}
+}
+@media(max-width:400px){
+  .hud-player-row{grid-template-columns:minmax(0,170px) minmax(82px,92px)}
+  .hud-player .quest-hud{width:min(170px,100%)}
+  .hud-time strong{font-size:16.25px}
+}
+@media(prefers-reduced-motion:reduce){
+  .image-bg.story-art-enter{animation:none}
+  :where(.button,.ghost,.nav-button,.icon-button,.card,.skill,.hero-skill-icon,.save-slot,.story-save,.route-card,.rule-card){transition:none!important}
+  :where(.button,.ghost,.nav-button,.icon-button):active{transform:none}
+}
+
+/* Authored typefaces across every screen: Bylina for interface copy, Skazanie for headings. */
+body{font-family:var(--font-ui);font-size:var(--text-body);color:var(--color-text);font-variant-numeric:tabular-nums}
+:where(input,textarea,select){color:inherit}
+
+/* Construction and market cards show the actual object; pictograms label resource costs. */
+.bottom-tray .tray-content{min-height:0;overflow-y:auto;scrollbar-width:none}
+.bottom-tray .tray-content .cards{max-height:none;overflow:visible;gap:8px;padding:10px}
+.bottom-tray .card{position:relative;isolation:isolate;overflow:hidden;padding:0;gap:0;min-height:124px;background:#151d1d;text-align:left;align-items:stretch}
+.bottom-tray .card-art{position:absolute;left:0;top:0;bottom:0;width:43%;pointer-events:none;opacity:.9;mask-image:linear-gradient(90deg,#000 65%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 65%,transparent)}
+.bottom-tray .card-art img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;transition:transform var(--motion-base) ease,filter var(--motion-base) ease}
+.bottom-tray .card-copy{position:relative;display:flex;flex-direction:column;justify-content:center;gap:5px;width:65%;margin-left:35%;padding:8px 12px 8px 4px;min-height:124px}
+.bottom-tray .card-copy strong{font-size:20px;line-height:1.2;color:var(--color-text)}
+.bottom-tray .card-copy small{font-size:15px;line-height:1.35;color:var(--color-text-muted)}
+.bottom-tray .card-cost{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:0;padding-top:2px}
+.card-resource{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;font-size:16px;line-height:1.2;color:var(--color-text)}
+.card-resource .ui-icon{width:18px;height:18px;opacity:.9}
+.card-resource.insufficient{color:var(--color-danger)}
+.bottom-tray .card:not(:disabled):hover .card-art img{transform:scale(1.04);filter:brightness(1.1)}
+@media(max-width:520px){.bottom-tray .cards{grid-template-columns:1fr}.bottom-tray .card,.bottom-tray .card-copy{min-height:116px}.bottom-tray .card-copy{width:67%;margin-left:33%;padding:8px 14px 8px 4px}.bottom-tray .card-art{width:40%}}
+@media(prefers-reduced-motion:reduce){.bottom-tray .card-art img{transition:none}.bottom-tray .card:not(:disabled):hover .card-art img{transform:none}}
+/* Interactive village built from the supplied low-poly kit. */
+.village-world{position:absolute;inset:0;z-index:0;background:#172422;filter:brightness(var(--scene-brightness,1))}.village-world canvas{display:block;width:100%;height:100%;touch-action:none;filter:saturate(1.25)}.village-vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,#080e1333,transparent 32%,#08101322),radial-gradient(ellipse at center,transparent 62%,#060d1222)}.game>.hud-top,.game>.bottom-tray,.game>.night-btn{z-index:3}.village-tools{position:absolute;right:24px;top:160px;z-index:3;display:flex;gap:6px}.village-tools .ghost{font-size:18px;padding:7px 12px}.placement-panel{position:absolute;left:50%;bottom:100px;transform:translateX(-50%);z-index:5;padding:18px 22px;width:min(610px,calc(100% - 28px))}.placement-panel strong{font-family:var(--font-story);font-size:27px}.placement-panel p{margin:8px 0;font-size:18px}.placement-panel small{color:var(--muted);font-size:16px}.placement-panel .row{margin-top:14px;flex-wrap:wrap}.game:has(.placement-panel) .night-btn{display:none}.village-error{padding:30vh 20px;text-align:center;color:var(--bone)}
+@media(max-width:700px){.village-tools{top:210px;right:10px}.village-tools .ghost{font-size:16px;min-height:36px;padding:5px 10px}.placement-panel{bottom:70px;padding:14px}.placement-panel .row{gap:5px}.placement-panel .button,.placement-panel .ghost{font-size:16px;padding:8px 10px}}
+.scene-time .brand-icon{width:20px;height:20px}.village-tools{flex-wrap:wrap;justify-content:flex-end;max-width:330px}.modal-villageObject .row{margin-top:24px;justify-content:flex-end}.village-world canvas{cursor:grab}
+
+.village-tools{top:50%;right:18px;transform:translateY(-50%);flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:8px;max-width:145px;padding:10px;border:1px solid #c2a77f24;border-radius:12px;background:#111b20b3;backdrop-filter:blur(12px)}.village-tools .ghost{justify-content:center;min-height:42px}.village-tools .scene-time{margin-bottom:6px}@media(max-width:700px){.village-tools{top:50%;right:8px;max-width:116px;padding:6px;gap:5px}.village-tools .ghost{font-size:16px;padding:6px 8px}}
+
+/* Feedback copy shares the 22px body token (+2px); headings keep their display scale. */
+.modal{font-size:var(--text-feedback)}
+.modal p,.modal li,.modal .result-list,.modal .event-result,.modal .ledger{font-size:var(--text-feedback);line-height:1.6;overflow-wrap:break-word}
+#toast,.toast{font-size:var(--text-feedback);line-height:1.45;max-width:min(600px,calc(100vw - 32px))}
+
+/* Rules: restrained ambient motion and expandable illustrated guides. */
+.rules-shell{position:relative;isolation:isolate}.rules-atmosphere{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none}.rules-shade{position:absolute;inset:-25%;background:radial-gradient(ellipse at 30% 35%,#030709b0,transparent 60%),radial-gradient(ellipse at 78% 65%,#0009,transparent 65%);animation:rules-shadow-drift 26s ease-in-out infinite alternate}.rules-firefly{position:absolute;left:var(--x);top:var(--y);width:3px;height:3px;border-radius:50%;background:#e9ce88;box-shadow:0 0 8px 2px #d6bc5d45;opacity:0;animation:rules-firefly-drift var(--duration) ease-in-out var(--delay) infinite}.rules-grid{align-items:start}.rule-card{padding:0;transition:border-color .3s,box-shadow .3s}.rule-card summary{position:relative;padding:25px 23px;list-style:none;cursor:pointer;min-height:275px}.rule-card summary::-webkit-details-marker{display:none}.rule-card summary:focus-visible{outline:2px solid var(--color-focus);outline-offset:-4px;border-radius:var(--radius-panel)}.rule-card[open]{border-color:#b89d7677;box-shadow:0 18px 44px #0005}.rule-more{display:block;margin-top:16px;color:var(--color-gold);font-size:var(--text-small)}.rule-card[open] .rule-more{color:var(--color-text)}.rule-expanded{padding:0 23px 25px;animation:rule-reveal .3s ease both}.rule-expanded figure{margin:0 0 15px}.rule-expanded img{width:100%;height:160px;object-fit:cover;display:block;border-radius:4px;border:1px solid #bca78935}.rule-expanded figcaption{font-size:var(--text-caption);color:var(--muted);line-height:1.4;margin-top:8px}.rule-expanded p{font-size:var(--text-body);line-height:1.5}.rule-card:nth-child(3) .rule-expanded img{object-position:center 25%}.rule-card::after{pointer-events:none}
+@keyframes rules-shadow-drift{from{transform:translate(-3%,-2%) scale(1)}to{transform:translate(5%,4%) scale(1.08)}}@keyframes rules-firefly-drift{0%,100%{opacity:0;transform:translate(0,0)}30%{opacity:.5}60%{opacity:.25;transform:translate(22px,-32px)}80%{opacity:.45;transform:translate(-12px,-48px)}}@keyframes rule-reveal{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}@media(max-width:700px){.rule-card summary{min-height:0;padding:22px}.rule-expanded{padding:0 22px 22px}.rule-expanded img{height:200px}}@media(prefers-reduced-motion:reduce){.rules-shade,.rules-firefly,.rule-expanded{animation:none}.rules-firefly{opacity:.2}.rule-card{transition:none}}
+/* Dialogue readability standard: +5 px body and action labels; use for future dialogs. */
+
+.modal p,.modal li,.modal .result-list,.modal .event-result,.modal .ledger{font-size:var(--text-dialogue)}
+.dialogue-text{font-size:var(--text-dialogue-novel);line-height:1.55;max-width:100%;overflow-wrap:break-word}
+.modal .button,.modal .ghost,.modal .option,.dialogue-box .button,.dialogue-box .ghost,.dialogue-box .choice-copy>span{font-size:var(--text-dialogue-action)}
+.modal .option small,.dialogue-box .choice-copy small{font-size:20px}
+/* Rules: readable copy, aligned summaries and gentle disclosure. */
+
+.rules-shell .rules-intro p,.rules-shell .warrior-rules p,.rules-shell .rule-card p,.rules-shell .rules-foot{font-size:var(--text-rules);line-height:1.55;color:var(--color-text,#e7dfd2)}
+.rules-shell .button,.rules-shell .ghost{font-size:var(--text-dialogue-action);line-height:1.3}
+.rules-grid{align-items:start}
+.rule-card{min-height:0;padding:0}
+.rule-card summary{display:flex;flex-direction:column;gap:18px;min-height:340px;padding:24px;box-sizing:border-box}
+.rule-number{font-size:28px;line-height:1.1;letter-spacing:.08em}
+.rule-heading{display:flex;align-items:center;gap:12px;min-height:42px}
+.rule-heading h3{margin:0;font-size:28px;line-height:1.2;min-width:0}
+.rule-heading .rule-icon{display:flex;flex:none;margin:0;width:36px;height:36px}
+.rule-heading .brand-icon{width:36px;height:36px}
+.rule-more{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:6px;font-size:20px;line-height:1.25}
+.rule-more .brand-icon{width:20px;height:20px;transition:transform var(--motion-rule) cubic-bezier(.22,1,.36,1)}
+.rule-card.is-expanded .rule-more .brand-icon{transform:rotate(180deg)}
+.rule-expanded{padding:0 24px 24px;animation:none;opacity:0;transform:translateY(8px);transition:opacity var(--motion-rule) ease,transform var(--motion-rule) cubic-bezier(.22,1,.36,1)}
+.rule-card.is-expanded .rule-expanded{opacity:1;transform:translateY(0)}
+.rule-expanded figcaption{font-size:18px;line-height:1.45}
+.rules-foot{justify-content:center}
+.rules-foot .button{padding:15px 28px;min-height:56px}
+@media(max-width:700px){.rule-card summary{min-height:0!important;padding:22px}.rule-expanded{padding:0 22px 22px}}
+@media(prefers-reduced-motion:reduce){.rule-expanded,.rule-more .brand-icon{transition:none}}
+/* Action choices use the same reading scale as their dialogue. */
+
+.dialogue-box .dialogue-choices .ghost,.dialogue-box .choice-copy>span{font-size:var(--text-dialogue-novel);line-height:1.4}
+.modal .option,.modal .option>span,.chapter-options .option,.chapter-options .option>span{font-size:var(--text-action-choice);line-height:1.4}
+.dialogue-choices .ghost,.modal .option,.chapter-options .option{height:auto;white-space:normal;overflow-wrap:break-word}
+.dialogue-box .dialogue-choices .ghost{padding:16px 18px;min-height:96px;align-items:center}
+.dialogue-box .choice-copy>span,.modal .option>span,.chapter-options .option>span{white-space:normal;overflow:visible;text-overflow:clip}
+@media(max-width:800px){.dialogue-box .dialogue-choices .ghost{padding:12px 14px;min-height:78px}}
+/* Prologue controls follow the shared novel/rules button scale. */
+.cinematic .button,.cinematic .ghost{font-size:var(--text-dialogue-action);line-height:1.3;min-height:56px;padding:15px 22px;gap:12px}
+.cinematic-actions .brand-icon{width:24px;height:24px}
+.cinematic-actions,.cinematic-bottom .row{flex-wrap:wrap;gap:12px}
+.cinematic-bottom{max-width:960px}
+.cinematic-bottom p{max-width:900px;font-size:var(--text-dialogue-novel);line-height:1.55}
+.cinematic-bottom .progress{margin-top:24px}
+@media(max-width:700px){.cinematic .button,.cinematic .ghost{padding:12px 16px;min-height:52px}.cinematic-bottom p{font-size:var(--text-dialogue-novel)}}
+/* Expressive word reveal: punctuation pauses share the original time budget. */
+.airy-word{display:inline-block;opacity:0;filter:blur(5px);transform:translateY(4px);transition:opacity 420ms ease,filter 520ms ease,transform 520ms cubic-bezier(.22,1,.36,1)}
+.airy-word.is-visible{opacity:1;filter:blur(0);transform:translateY(0)}
+.cinematic-bottom #prologue-text{animation:none}
+@media(prefers-reduced-motion:reduce){.airy-word{filter:none;transform:none;transition:none}}
+/* Reference palette: dark foundations, distinct warm and cool interaction accents. */
+
+.button:not(:disabled){background:linear-gradient(145deg,#a8372b,#86271d);border-color:#c95338;color:#fff0df}
+.button:not(:disabled):hover{background:linear-gradient(145deg,#bd4933,#a13327);border-color:#e07943}
+.rule-card{background:linear-gradient(145deg,#1d2624eb,#111819ed)}
+.dialogue-box{background:linear-gradient(140deg,#17201ff2,#101718f2)}
+.bottom-tray .card{background:#151d1d}
+.dialogue-choices .ghost{background:linear-gradient(120deg,#632b20d9,#141b1bed 66%);border-color:#a8372b99;box-shadow:inset 2px 0 #a8372b,0 10px 28px #0005}
+.dialogue-choices .ghost:hover,.dialogue-choices .ghost:focus-visible{background:linear-gradient(115deg,#86271de0,#20201cf0 75%);border-color:#c96a0b;box-shadow:inset 3px 0 #c96a0b,0 0 24px #a8372b38,0 12px 30px #0008}
+.choice-symbol{background-color:var(--color-accent-hover)}
+.choice-icon{border-color:#a8372b88!important;background:#86271d40!important}
+.progress>i{background:var(--color-accent)}
+.life-heart:not(.empty){fill:#b43d2e;filter:drop-shadow(0 0 4px #a8372b50)}
+.voice-narrator,.voice-frol{--voice:#5ad4d0;--voice-glow:#318a7d60;--voice-soft:#318a7d18}
+.voice-mother,.voice-marfa,.voice-agafya{--voice:#e6a045;--voice-glow:#c96a0b60;--voice-soft:#652d191f}
+.voice-father,.voice-prokop{--voice:#c1ba68;--voice-glow:#85813f60;--voice-soft:#49412326}
+.voice-intruder,.voice-hero{--voice:#d15b43;--voice-glow:#a8372b60;--voice-soft:#86271d24}
+.voice-feofan,.voice-erema{--voice:#ffec65;--voice-glow:#bda91a60;--voice-soft:#bda91a17}
+.voice-dunyasha,.voice-swamp{--voice:#78d1b5;--voice-glow:#318a7d60;--voice-soft:#318a7d18}
+.rule-number,.rule-more{color:var(--color-gold)}
+.rule-card[open]{border-color:#bda91a80}
+.ghost.active,.nav-button.active,.icon-button.active{background:#86271d35;border-color:var(--color-accent)}
+.quest-hud.completed{border-color:var(--color-teal);box-shadow:0 0 24px #318a7d40}
+/* Scene progress reuses the opening screen's red magic wick and smoke. */
+.story-frame-burn{position:relative;width:min(650px,100%);height:110px;margin-top:14px;overflow:visible;background:none;border:0}
+.story-frame-burn .charm-burn{position:absolute;inset:0;width:100%;height:100%;opacity:1;pointer-events:none}
+@media(max-width:700px){.story-frame-burn{height:86px;margin-top:8px}}
+@media(max-height:520px){.story-frame-burn{height:64px;margin-top:4px}}
+/* Keep the wick itself aligned with copy while giving its smoke room to bleed. */
+.story-frame-burn .charm-burn{left:-32px;right:auto;width:calc(100% + 64px)}
+/* One shared narrative control format for prologue and novel. */
+
+.cinematic .button,.cinematic .ghost,.novel-top .ghost,.dialogue-footer .button,.dialogue-footer .ghost{
+ font-size:var(--text-dialogue-action);line-height:1.3;min-height:var(--narrative-button-height);
+ padding:var(--narrative-button-padding-y) var(--narrative-button-padding-x);gap:12px;
+ display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;
+}
+.cinematic-actions .brand-icon,.novel-top .brand-icon,.dialogue-footer .brand-icon{width:var(--narrative-button-icon);height:var(--narrative-button-icon);flex:none}
+@media(max-width:700px){:root{--narrative-button-height:52px;--narrative-button-padding-y:12px;--narrative-button-padding-x:16px}}
+
+/* Prologue: soft radial shade behind the lower-left narrative. */
+.prologue-art + .darken{background:radial-gradient(ellipse 78% 105% at 0% 100%,rgba(5,9,12,.88) 0%,rgba(5,9,12,.78) 20%,rgba(5,9,12,.60) 40%,rgba(5,9,12,.32) 60%,rgba(5,9,12,.10) 78%,rgba(5,9,12,0) 100%)}
+.prologue-art ~ .cinematic .cinematic-bottom h1,.prologue-art ~ .cinematic #prologue-text{color:var(--bone);text-shadow:0 2px 4px rgba(0,0,0,.95),0 4px 16px rgba(0,0,0,.8)}
+
+/* Marginal drawings: authored SVG masks inherit the screen's muted palette. */
+.edge-notes{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1;--notes-ink:#a29169;--notes-x:0px;--notes-y:0px;contain:layout paint}
+.edge-notes[data-tone="story"]{--notes-ink:#b4a28b}
+.edge-notes[data-tone="ember"]{--notes-ink:#9c6254}
+.edge-notes i{position:absolute;display:block;aspect-ratio:1;background:var(--notes-ink);mask:var(--art) center/contain no-repeat;-webkit-mask:var(--art) center/contain no-repeat;opacity:0;transform:translate(calc(var(--notes-x)*var(--depth)),calc(var(--notes-y)*var(--depth))) rotate(var(--angle));animation:edge-note-breathe var(--duration) ease-in-out var(--delay) infinite,edge-note-drift var(--drift-duration) ease-in-out infinite alternate;will-change:opacity}
+@keyframes edge-note-breathe{0%,100%{opacity:0}18%{opacity:.0405}38%,52%{opacity:.09}75%{opacity:.0315}88%{opacity:0}}
+@media(max-width:700px){.edge-notes i{width:48%!important}.edge-notes i:nth-child(n+5){display:none}}
+@media(prefers-reduced-motion:reduce){.edge-notes i{animation:none;opacity:.0495;transform:rotate(var(--angle));will-change:auto}}
+
+.edge-notes.on-loading{z-index:0}
+@keyframes edge-note-drift{from{transform:translate(calc(var(--notes-x)*var(--depth) - 5px),calc(var(--notes-y)*var(--depth) - 8px)) rotate(var(--angle))}to{transform:translate(calc(var(--notes-x)*var(--depth) + 9px),calc(var(--notes-y)*var(--depth) + 10px)) rotate(calc(var(--angle) + 2deg))}}
+
+/* Panel ornament uses its speaker accent, behind all actionable content. */
+.dialogue-box,.modal,#toast{--window-ink:var(--voice,#d15b43)}
+#toast{position:fixed;isolation:isolate;overflow:hidden}
+.window-notes{position:absolute;z-index:0;overflow:visible;pointer-events:none}
+.window-notes[hidden]{display:none}
+.toast-notes{position:fixed;z-index:99}
+.dialogue-box,.modal{z-index:1}
+.dialogue-wrap{isolation:isolate}
+.modal-layer{isolation:isolate}
+.window-notes i{position:absolute;display:block;width:320px;aspect-ratio:1;background:var(--window-ink);mask:var(--art) center/contain no-repeat;-webkit-mask:var(--art) center/contain no-repeat;opacity:0;animation:window-note-fade var(--duration) ease-in-out var(--delay) infinite,window-note-float 23s ease-in-out infinite alternate;transform:rotate(var(--angle));}
+.window-notes i:nth-child(1){left:-100px;top:-125px}
+.window-notes i:nth-child(2){right:-120px;bottom:-135px;animation-direction:normal,alternate-reverse}
+.window-notes i:nth-child(3){right:12%;top:-220px;width:380px}
+@keyframes window-note-fade{0%,100%{opacity:0}18%{opacity:.10}38%,60%{opacity:.20}82%{opacity:.06}}
+@keyframes window-note-float{from{transform:translate(-6px,-8px) rotate(var(--angle))}to{transform:translate(14px,12px) rotate(calc(var(--angle) + 4deg))}}
+@media(prefers-reduced-motion:reduce){.window-notes i{animation:none;opacity:.14}}
+/* Cut out the panel footprint: ornament is visible only outside the window. */
+.window-notes{clip-path:polygon(evenodd,-250px -250px,calc(100% + 250px) -250px,calc(100% + 250px) calc(100% + 250px),-250px calc(100% + 250px),-250px -250px,0 0,0 100%,100% 100%,100% 0,0 0)}
+
+/* Page decoration sits above the shell paint, behind its content. */
+.screen-shell{position:relative;isolation:isolate}
+.screen-shell > .edge-notes{z-index:-1}
+
+/* Semantic copy and scene interactions. */
+.text-summary{font-size:var(--text-dialogue)}
+.object-pointer-actions button{font-family:var(--font-ui);font-size:var(--text-body);min-height:44px;color:var(--color-text)}
+.object-pointer-actions [data-object-next]{font-size:var(--text-caption);color:var(--color-text-muted)}
+.object-passport dt{color:var(--color-text-muted)}
+
+/* Church recollection shares narrative typography and authored role language. */
+.voice-voice{--voice:#b6b1de;--voice-glow:#7770ae60;--voice-soft:#7770ae18}
+.object-pointer-actions .church-memory-action{display:flex;align-items:center;gap:8px;background:linear-gradient(145deg,var(--color-accent),var(--color-accent-soft));border-color:var(--color-accent-hover);color:#fff0df}
+.object-pointer-actions .church-memory-action[hidden]{display:none}
+.object-pointer-actions .church-memory-action img{width:22px;height:22px;object-fit:contain}
+.object-pointer-actions .church-memory-action:hover{background:var(--color-accent-hover)}
+
+.object-pointer.has-memory{width:330px;height:250px}
+.object-pointer.has-memory .object-pointer-actions{width:230px}
+.object-pointer.has-memory.flip{transform:translateX(-330px)}
+.object-pointer.has-memory.flip .object-pointer-line{left:238px}
+
+.memory-intro #novel-text{color:var(--bone);text-shadow:0 2px 4px rgba(0,0,0,.95),0 4px 16px rgba(0,0,0,.8)}
+
+/* Conversation with the enchanted oak follows the novel typography and choice layout. */
+.voice-oak{--voice:#b6cc89;--voice-glow:rgba(126,162,86,.16);--voice-soft:rgba(126,162,86,.1)}
+.oak-novel .dialogue-wrap{width:min(1160px,calc(100vw - 64px));margin-inline:auto}
+.oak-novel .speaker>svg,.oak-novel .speaker>img{width:48px;height:48px}
+.oak-novel .choice-icon svg,.oak-novel .choice-icon img{width:32px;height:32px}
+.oak-novel .dialogue-footer{display:flex;justify-content:center;margin-top:16px}
+.oak-novel .is-selected{border-color:#b6cc89;background:rgba(95,125,66,.18)}
+.oak-talk-action{color:#fff0df;display:flex;align-items:center;gap:10px}.oak-talk-action img{width:24px;height:24px}
+.oak-talk-action[hidden]{display:none!important}
+@media(max-width:640px){.oak-novel .dialogue-wrap{width:calc(100vw - 24px)}}
+
+/* Four equal conversation topics and return in the shared top-right narrative bar. */
+.oak-novel .novel-top{justify-content:flex-end;align-self:stretch;width:100%}
+.oak-novel .dialogue-wrap{width:min(1400px,calc(100vw - 64px))}
+.oak-novel .dialogue-choices{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.oak-novel .dialogue-choices .ghost{min-width:0;min-height:88px;grid-template-columns:36px minmax(0,1fr);padding:14px;gap:12px}
+.oak-novel .choice-copy>span{font-size:var(--text-dialogue-action);line-height:1.3}
+.oak-story-art+.darken{background:linear-gradient(0deg,#070b0fec,transparent 65%),linear-gradient(90deg,#070b0f38,#070b0f10 60%)}
+@media(max-width:700px){.oak-novel .dialogue-wrap{width:calc(100vw - 24px)}.oak-novel .dialogue-choices{gap:5px}.oak-novel .dialogue-choices .ghost{display:flex;flex-direction:column;align-items:center;padding:8px 5px;gap:6px;text-align:center}.oak-novel .choice-copy>span{font-size:14px;overflow-wrap:anywhere}}
+
+/* One role palette for narrative and resident windows; overrides legacy surface defaults. */
+.voice-narrator,.dialogue-box.voice-narrator,.modal.voice-narrator{--voice:#5ad4d0;--voice-glow:#318a7d60;--voice-soft:#318a7d18}
+.voice-frol,.dialogue-box.voice-frol,.modal.voice-frol{--voice:#5ad4d0;--voice-glow:#318a7d60;--voice-soft:#318a7d18}
+.voice-mother,.dialogue-box.voice-mother,.modal.voice-mother{--voice:#e6a045;--voice-glow:#c96a0b60;--voice-soft:#652d191f}
+.voice-marfa,.dialogue-box.voice-marfa,.modal.voice-marfa{--voice:#e6a045;--voice-glow:#c96a0b60;--voice-soft:#652d191f}
+.voice-agafya,.dialogue-box.voice-agafya,.modal.voice-agafya{--voice:#e6a045;--voice-glow:#c96a0b60;--voice-soft:#652d191f}
+.voice-father,.dialogue-box.voice-father,.modal.voice-father{--voice:#c1ba68;--voice-glow:#85813f60;--voice-soft:#49412326}
+.voice-prokop,.dialogue-box.voice-prokop,.modal.voice-prokop{--voice:#c1ba68;--voice-glow:#85813f60;--voice-soft:#49412326}
+.voice-intruder,.dialogue-box.voice-intruder,.modal.voice-intruder{--voice:#bf7972;--voice-glow:#a6474759;--voice-soft:#8b393326}
+.voice-hero,.dialogue-box.voice-hero,.modal.voice-hero{--voice:#d15b43;--voice-glow:#a8372b60;--voice-soft:#86271d24}
+.voice-feofan,.dialogue-box.voice-feofan,.modal.voice-feofan{--voice:#ffec65;--voice-glow:#bda91a60;--voice-soft:#bda91a17}
+.voice-erema,.dialogue-box.voice-erema,.modal.voice-erema{--voice:#ffec65;--voice-glow:#bda91a60;--voice-soft:#bda91a17}
+.voice-dunyasha,.dialogue-box.voice-dunyasha,.modal.voice-dunyasha{--voice:#78d1b5;--voice-glow:#318a7d60;--voice-soft:#318a7d18}
+.voice-swamp,.dialogue-box.voice-swamp,.modal.voice-swamp{--voice:#78d1b5;--voice-glow:#318a7d60;--voice-soft:#318a7d18}
+.voice-voice,.dialogue-box.voice-voice,.modal.voice-voice{--voice:#b6b1de;--voice-glow:#7770ae60;--voice-soft:#7770ae18}
+.voice-shadow,.dialogue-box.voice-shadow,.modal.voice-shadow{--voice:#c2639c;--voice-glow:#90366560;--voice-soft:#90366520}
+.voice-leshy,.dialogue-box.voice-leshy,.modal.voice-leshy{--voice:#c1ba68;--voice-glow:#85813f60;--voice-soft:#49412326}
+.voice-oak,.dialogue-box.voice-oak,.modal.voice-oak{--voice:#b6cc89;--voice-glow:#7ea25629;--voice-soft:#7ea2561a}
+@media(prefers-reduced-motion:reduce){.defense-status{transition:none}}
+
+.modal[class*="voice-"]{box-shadow:0 25px 90px #000b,inset 0 1px 0 #e7e4db18}
+
+/* First oak encounter stays on the playable village, never replaces its background. */
+.oak-encounter-layer{position:fixed;inset:0;z-index:35;display:flex;align-items:flex-end;justify-content:center;padding:24px;pointer-events:none}.oak-encounter-layer .dialogue-wrap{position:relative;inset:auto;width:min(1050px,calc(100vw - 48px));margin:0;pointer-events:auto}.oak-encounter-layer .dialogue-box{padding:24px 32px;box-shadow:0 20px 70px #000a}.oak-encounter-layer .speaker{display:flex;align-items:center;gap:10px;font:clamp(24px,2.4vw,31px) var(--font-story)}.oak-encounter-layer .dialogue-text{font-size:var(--text-dialogue);line-height:1.45;margin:14px 0;max-width:none}.oak-encounter-layer .dialogue-footer{display:flex;justify-content:flex-end;gap:12px}.oak-encounter-layer .button,.oak-encounter-layer .ghost{font-size:var(--text-dialogue-action)}
+.oak-talk-pending{animation:oak-talk-pulse 2.8s ease-in-out infinite}@keyframes oak-talk-pulse{0%,100%{box-shadow:0 0 0 rgba(209,91,67,0)}50%{box-shadow:0 0 15px rgba(209,91,67,.3);border-color:#d15b43}}
+@media(max-width:700px){.oak-encounter-layer{padding:12px}.oak-encounter-layer .dialogue-wrap{width:100%}.oak-encounter-layer .dialogue-box{padding:18px}.oak-encounter-layer .dialogue-text{font-size:23px}}
+@media(prefers-reduced-motion:reduce){.oak-talk-pending{animation:none}}
+
+/* Shared dialogue surface: applies on the village as well as every novel route. */
+:root{--window-padding:24px;--window-content-gap:16px;--window-action-gap:12px}
+.dialogue-box,.novel .dialogue-wrap .dialogue-box,.novel .dialogue-wrap.is-short .dialogue-box,.oak-encounter-layer .dialogue-box{
+ box-sizing:border-box;height:auto;min-height:0;padding:var(--window-padding);
+ display:flex;flex-direction:column;gap:var(--window-content-gap);
+}
+.dialogue-box[class*="voice-"]{box-shadow:0 25px 90px #000b,inset 0 1px 0 #e7e4db18}
+.dialogue-box .speaker,.novel .dialogue-box .speaker,.oak-encounter-layer .speaker{
+ display:inline-flex;align-items:center;align-self:flex-start;gap:10px;min-height:0;
+ margin:0;padding:0;border:0;font-family:var(--font-story);font-size:clamp(24px,2.4vw,31px);line-height:1.3;
+}
+.dialogue-box .speaker::after,.conversation-speaker::after{content:none;display:none}
+.dialogue-box .dialogue-text,.novel .dialogue-wrap .dialogue-text,.novel .dialogue-wrap.is-short .dialogue-text,.oak-encounter-layer .dialogue-text{
+ width:100%;max-width:none;min-height:0;height:auto;margin:0;padding:0;
+ font-size:var(--text-dialogue-novel);line-height:1.45;text-wrap:wrap;overflow-wrap:break-word;
+}
+.dialogue-box .dialogue-footer,.novel .dialogue-wrap .dialogue-footer,.oak-encounter-layer .dialogue-footer{
+ display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:var(--window-action-gap);margin:0;padding:0;width:100%;
+}
+.dialogue-footer .button,.dialogue-footer .ghost{margin:0}
+.modal{box-sizing:border-box;padding:var(--window-padding)}
+.modal-head{margin-bottom:var(--window-content-gap)}
+.modal>.row:last-child,.modal>.modal-body>.row:last-child,.modal-villageObject .row{
+ margin:var(--window-content-gap) 0 0;padding:0;gap:var(--window-action-gap);flex-wrap:wrap;justify-content:flex-end;
+}
+.story-save-body{padding:var(--window-padding)}
+.story-save-actions{margin-top:auto;padding-top:var(--window-action-gap)}
+.rule-card summary{padding:var(--window-padding)}
+.rule-expanded{padding:0 var(--window-padding) var(--window-padding)}
+@media(max-width:700px){:root{--window-padding:16px;--window-content-gap:12px}}
+.modal>.button:last-child,.modal>.ghost:last-child{margin-top:var(--window-content-gap)}
+/* Authored wave topics share the same row without an orphaned extra choice. */
+.oak-novel .dialogue-choices{grid-template-columns:repeat(var(--oak-topic-count,4),minmax(0,1fr))}
+@media(max-width:900px){.oak-novel .dialogue-choices{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* v174: all tasks remain readable inside one bounded expandable HUD. */
+.quest-hud.open .quest-content{max-height:min(350px,45vh);overflow-y:auto}.quest-other{display:flex;gap:8px;align-items:flex-start;border-top:1px solid #a4ada633;padding-top:10px;margin-top:10px}.quest-other>.ui-icon,.quest-other>span>.ui-icon{width:20px;height:20px}.quest-other strong{font-family:var(--font-ui);font-size:var(--text-body)}.quest-hud.completed.leaving{opacity:0;transform:translateY(-6px);transition:opacity .4s ease,transform .4s ease}.speaker-oak-mark{width:32px;height:32px;flex:none}.voice-prokop{--voice:#b6cc89;--voice-glow:#7ea25629;--voice-soft:#7ea2561a}.voice-frol{--voice:#dfa970;--voice-glow:#a66d3529;--voice-soft:#a66d351a}.voice-agafya{--voice:#d397aa;--voice-glow:#a1668229;--voice-soft:#a166821a}
+/* Automatic combat speech: content height, no action row or speaker rules. */
+.battle-dialogue{position:absolute;z-index:29;left:50%;bottom:210px;transform:translateX(-50%);width:min(560px,calc(100% - 40px));padding:16px 20px;background:linear-gradient(130deg,#12191af5,#0c1011eb);border:1px solid #aeb5a329;box-shadow:0 6px 26px #0007,0 0 24px var(--voice-soft);pointer-events:none;min-height:0;height:auto;border-radius:3px}
+.battle-dialogue[hidden],.night-tip[hidden]{display:none!important}
+.battle-dialogue .speaker{display:flex;align-items:center;gap:10px;margin:0 0 8px;padding:0;border:0;background:none;color:var(--voice,#e7d8bc);font-family:var(--font-story);font-size:24px;text-decoration:none}
+.battle-dialogue .speaker::before,.battle-dialogue .speaker::after{display:none}
+.battle-dialogue .dialogue-text{font-size:var(--text-dialogue-action);line-height:1.5;margin:0;padding:0;min-height:0;color:var(--color-text);border:0}
+.night-tip{max-width:560px;margin:10px auto 0;padding:9px 16px;text-align:center;font-size:16px;line-height:1.45;color:#e6dcc9;background:#101718d9;border-radius:3px;pointer-events:none}
+@media(max-width:760px){.battle-dialogue{bottom:190px;width:calc(100% - 32px);padding:12px 16px}.battle-dialogue .speaker{font-size:20px}.battle-dialogue .dialogue-text{font-size:18px}.night-tip{font-size:14px;padding:8px 10px;max-width:calc(100vw - 32px)}}
+@media(max-height:620px){.battle-dialogue{bottom:145px;max-width:510px}.battle-dialogue .dialogue-text{font-size:18px;line-height:1.35}}

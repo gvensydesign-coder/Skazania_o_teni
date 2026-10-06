@@ -1,0 +1,28 @@
+{
+  "runtime_file_count": 385,
+  "runtime_size_bytes": 234458736,
+  "types": {
+    ".md": 3,
+    ".js": 44,
+    ".png": 78,
+    ".webp": 50,
+    ".json": 4,
+    ".svg": 106,
+    ".glb": 18,
+    ".txt": 1,
+    ".mp3": 37,
+    ".ogg": 36,
+    ".css": 4,
+    ".woff": 3,
+    ".html": 1
+  },
+  "static_references_checked": 64,
+  "external_html_dependencies": [],
+  "errors": [],
+  "tests": "all 22 repository .cjs scripts passed before copying",
+  "browser_validation": "not performed",
+  "source_sha": "08b14ca278645c3d56fdd4316361d0ddc372ee2f",
+  "audio_files_checked": 73,
+  "portable_tests": "22 test scripts pass from unpacked folder, without .git",
+  "audio_check": "complete FFmpeg decoding"
+}

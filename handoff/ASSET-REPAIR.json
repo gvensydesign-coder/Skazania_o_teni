@@ -1,0 +1,24 @@
+{
+  "repairs": [
+    {
+      "file": "dist/assets/forest/low-normal.png",
+      "reason": "Published PNG is truncated: 964 of 1024 scanlines decompress fully; no complete earlier Git version exists.",
+      "repair": "Rebuilt complete tangent-space normal map from unchanged embedded albedo atlas in low.glb. Geometry, UVs and base-color atlas unchanged.",
+      "source_sha256": "752acdb658db1bcbb8d4b8d27bba336a39647d3db6241b8e0295a3815acb53ef",
+      "repaired_sha256": "ecf435a3e28089aa5fbb93e95aea7d89bf01ffef5b76a00dd3b6b27e85cd3aff",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "scope": "export only; published game and history.bundle retain original source",
+      "visual_verification": "not performed"
+    },
+    {
+      "file": "dist/audio/zvuki/fire-new.ogg",
+      "reason": "OGG duplicate cannot be decoded: unexpected end of file.",
+      "repair": "Re-encoded complete fire-new.mp3 from the same project to OGG Vorbis quality 7. Original MP3 unchanged.",
+      "repaired_sha256": "b99bc0209732f7ecc69c7278e52729961e367feab7367f378427e539ded4be74",
+      "scope": "export only"
+    }
+  ]
+}

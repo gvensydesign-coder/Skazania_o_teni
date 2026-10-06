@@ -1,0 +1,13 @@
+{
+  "title": "Сказание о Тени",
+  "published_version": 184,
+  "commit": "08b14ca278645c3d56fdd4316361d0ddc372ee2f",
+  "source": "exact tracked source of published version",
+  "browser_qa": "not performed; see KNOWN-LIMITATIONS.md",
+  "export_changes": [
+    "complete regenerated low-normal.png; ASSET-REPAIR.json",
+    "handoff and deployment tools",
+    "portable regression fixture from exact d252e54 Git source",
+    "fire-new.ogg regenerated from intact MP3 duplicate"
+  ]
+}

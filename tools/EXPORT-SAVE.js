@@ -1,0 +1,2 @@
+/* Execute in the developer console of the OLD game address. */
+(()=>{const value=localStorage.getItem('shadow-tale-game');if(!value)throw Error('Сохранение игры не найдено');const game=JSON.parse(value);if(!game.hero||!game.resources)throw Error('Неожиданный формат сохранения');const blob=new Blob([JSON.stringify({format:'shadow-tale-transfer',version:1,game},null,2)],{type:'application/json'});const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download='Skazanie-o-Teni-save.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);})();
