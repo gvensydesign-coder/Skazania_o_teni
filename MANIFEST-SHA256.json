@@ -1,5 +1,5 @@
 {
-  "version": 186,
+  "version": 187,
   "files": [
     {
       "path": ".gitignore",
@@ -1794,7 +1794,7 @@
     {
       "path": "dist/index.html",
       "bytes": 3087,
-      "sha256": "6218926c2ea0a8e86f94c13d43baf3a06e96ed24ce9f367ab4ed3281bc78d9c5"
+      "sha256": "c1710db6cd832375167a8b3f93048876dad8977aceced74203efed260fca9d4e"
     },
     {
       "path": "dist/logo-intro.js",
@@ -1888,8 +1888,8 @@
     },
     {
       "path": "dist/quality-inspector.js",
-      "bytes": 1122,
-      "sha256": "4cd53e7450446eda7701b087684ae2f3339c2771464c80738c4a9092833b1f63"
+      "bytes": 1197,
+      "sha256": "e3e9c65d690621885ace5140d44d6d5810902a07c24e5f1baa6bc921a322110d"
     },
     {
       "path": "dist/responsive.css",
@@ -1983,8 +1983,8 @@
     },
     {
       "path": "docs/INTEGRATION-REPORT-v185.md",
-      "bytes": 13748,
-      "sha256": "158892cc521303b54491567edb5e1034ada66c3ad414d0025e16ed5583365080"
+      "bytes": 15998,
+      "sha256": "0714ad44e0e6ce0ab363aab93216e705199995de691f62d27c701e21d2c87824"
     },
     {
       "path": "docs/forest-stream-v184.md",
@@ -2117,6 +2117,11 @@
       "sha256": "f42922c3fd406770ebb1738a186b41dd8284dd63b3ad1c476c01215df1622240"
     },
     {
+      "path": "tests/loading-timing-regression.cjs",
+      "bytes": 1395,
+      "sha256": "0e252aab7396084bdc1e877d6d3052c39f36a5fdd42ac846f918aae31a7dc234"
+    },
+    {
       "path": "tests/night-effect-runtime.cjs",
       "bytes": 1219,
       "sha256": "e43ccd1283f90c6fce024508f01fb970d5636046d49392f42756523313973b4a"
@@ -2143,8 +2148,8 @@
     },
     {
       "path": "tests/progress-links-regression.cjs",
-      "bytes": 2664,
-      "sha256": "6ac4432624b829207f41c7ca7e15fbc8757082fce43b51ecc95b5ef471de48b8"
+      "bytes": 2374,
+      "sha256": "1032175cbf5dd9aada0643f0717d0eba611c0fe2767288b0f24021043e08ddbf"
     },
     {
       "path": "tests/responsive-regression.cjs",
