@@ -1,5 +1,5 @@
 {
-  "version": 185,
+  "version": 186,
   "files": [
     {
       "path": ".gitignore",
@@ -58,8 +58,8 @@
     },
     {
       "path": "dist/app.js",
-      "bytes": 177171,
-      "sha256": "58fc43de08b806a8e94f8e9a9acaeabf672ea25f6bf490b92322b5cb25fef78d"
+      "bytes": 177158,
+      "sha256": "1bbfefeec168a8621691c2d5c4059581e2585651f21b3d21e79ab5dca227cf17"
     },
     {
       "path": "dist/assets/bogatyr.png",
@@ -1794,7 +1794,7 @@
     {
       "path": "dist/index.html",
       "bytes": 3087,
-      "sha256": "e13382763becd3c2e86c81056956da349c30879da12c2009e6fa11811bc88911"
+      "sha256": "6218926c2ea0a8e86f94c13d43baf3a06e96ed24ce9f367ab4ed3281bc78d9c5"
     },
     {
       "path": "dist/logo-intro.js",
@@ -2143,8 +2143,8 @@
     },
     {
       "path": "tests/progress-links-regression.cjs",
-      "bytes": 2374,
-      "sha256": "1032175cbf5dd9aada0643f0717d0eba611c0fe2767288b0f24021043e08ddbf"
+      "bytes": 2664,
+      "sha256": "6ac4432624b829207f41c7ca7e15fbc8757082fce43b51ecc95b5ef471de48b8"
     },
     {
       "path": "tests/responsive-regression.cjs",
