@@ -211,3 +211,10 @@ button,input,select{max-width:100%}
 .dialogue-wrap::-webkit-scrollbar{display:none;width:0;height:0}
 .dialogue-wrap>.dialogue-box,.dialogue-wrap>.dialogue-choices{min-width:0;max-width:100%;box-sizing:border-box}
 .dialogue-wrap .dialogue-text{min-width:0;overflow-wrap:anywhere}
+/* Preparation uses the same type scale on diary, profile and fate screens. */
+.progress-links{padding-block:calc(12 * var(--ui-unit));border-block:1px solid var(--color-border,#52605a);margin-block:calc(12 * var(--ui-unit));overflow-wrap:anywhere}
+.progress-links p{font-size:var(--text-small);line-height:1.45;margin-block:.6em}
+.progress-links .row{flex-wrap:wrap}
+.quality-inspector{position:fixed;right:12px;bottom:12px;z-index:1000;background:#090d0eee;color:#eee7db;padding:12px;max-width:calc(100vw - 24px);max-height:60dvh;overflow:auto;font:14px/1.5 monospace;border:1px solid #52605a}
+.quality-inspector pre{white-space:pre-wrap}.quality-inspector button{min-height:44px}
+@media(pointer:coarse){.button,.ghost,.icon-button,.nav-button,.hud-links button,.quest-toggle{min-height:44px}.hud-links button{min-width:44px}}

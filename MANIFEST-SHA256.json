@@ -1,5 +1,5 @@
 {
-  "version": 184,
+  "version": 185,
   "files": [
     {
       "path": ".gitignore",
@@ -43,8 +43,8 @@
     },
     {
       "path": "dist/DESIGN-SYSTEM-RULES.md",
-      "bytes": 60976,
-      "sha256": "48e6e97e09cf5c81c8d19948a01d71a4c9f613ea2154468ce5df6d9975c49c0a"
+      "bytes": 62134,
+      "sha256": "c1f60bfc3629064d9a1b4ee5776650518b1cf54b4bfa9ac8ffea4959b2a2adb8"
     },
     {
       "path": "dist/ICON-INVENTORY.md",
@@ -58,8 +58,8 @@
     },
     {
       "path": "dist/app.js",
-      "bytes": 176635,
-      "sha256": "30629059a767a7ff028b28dfb4e1fcc8d3502c416fe4a1c72063063d91c4cd9c"
+      "bytes": 177171,
+      "sha256": "58fc43de08b806a8e94f8e9a9acaeabf672ea25f6bf490b92322b5cb25fef78d"
     },
     {
       "path": "dist/assets/bogatyr.png",
@@ -247,6 +247,11 @@
       "sha256": "826b9ba5d3e58dccc4f906c15d620753b0f6c795320b9e61c5aaca37230d4177"
     },
     {
+      "path": "dist/assets/forest.png",
+      "bytes": 2521008,
+      "sha256": "a8feb6c6f37f66852ac2674c95f0a9d16afcb109192b47706127eafa30db4277"
+    },
+    {
       "path": "dist/assets/forest/low-normal.png",
       "bytes": 1268007,
       "sha256": "ecf435a3e28089aa5fbb93e95aea7d89bf01ffef5b76a00dd3b6b27e85cd3aff"
@@ -305,11 +310,6 @@
       "path": "dist/assets/forest/tall.glb",
       "bytes": 3630584,
       "sha256": "6cd995aa7455ee8f10f6622433084cea06c22670d902d0232f69a5d3f05a8eb7"
-    },
-    {
-      "path": "dist/assets/forest.png",
-      "bytes": 2521008,
-      "sha256": "a8feb6c6f37f66852ac2674c95f0a9d16afcb109192b47706127eafa30db4277"
     },
     {
       "path": "dist/assets/game-logo.svg",
@@ -757,6 +757,11 @@
       "sha256": "e4aec4d5aa409dc2b7c8f999908b700bda1655b58a66bc29bad1c0b9d5dff8e3"
     },
     {
+      "path": "dist/assets/village.png",
+      "bytes": 2148576,
+      "sha256": "784d7d4dc840b9fa7bf15c6557e9770495fd8c037a36c5abf2b4ce2415049301"
+    },
+    {
       "path": "dist/assets/village/circle-normal.png",
       "bytes": 913797,
       "sha256": "2ea86df4fa10da4de3de1a9786060a5f3b3a92a799e5a464258868675808b26b"
@@ -880,11 +885,6 @@
       "path": "dist/assets/village/tower.glb",
       "bytes": 2737348,
       "sha256": "178e7510a988b212aa4897dd8126743cc0d053d414d124305c8d30b85ea7af0c"
-    },
-    {
-      "path": "dist/assets/village.png",
-      "bytes": 2148576,
-      "sha256": "784d7d4dc840b9fa7bf15c6557e9770495fd8c037a36c5abf2b4ce2415049301"
     },
     {
       "path": "dist/assets/vyselki.png",
@@ -1268,8 +1268,8 @@
     },
     {
       "path": "dist/authored-forest.js",
-      "bytes": 6355,
-      "sha256": "441d0e8894a063db06ccfb32b0a56955d829ce76b6794a1254280437f571106c"
+      "bytes": 6750,
+      "sha256": "ac6ea6988944cc931bbeea7c54a38b28c7e8a39b50c94988f4b48528b75f9266"
     },
     {
       "path": "dist/authored-light.js",
@@ -1298,8 +1298,8 @@
     },
     {
       "path": "dist/defense-ui.js",
-      "bytes": 23144,
-      "sha256": "9e968dd60b541e66d07d1b278a29fb5664e13b686a577e9c1964f7989b2c576a"
+      "bytes": 23272,
+      "sha256": "5a2f30b07f7082c3076b1aac22b4c2f3a3c585c4719411831788917223c881fc"
     },
     {
       "path": "dist/defense.css",
@@ -1793,8 +1793,8 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 2926,
-      "sha256": "bee030dd7266945a0fe9569ba97a66b9f7ff8863cc3cf57935fa4d838e9efa75"
+      "bytes": 3087,
+      "sha256": "e13382763becd3c2e86c81056956da349c30879da12c2009e6fa11811bc88911"
     },
     {
       "path": "dist/logo-intro.js",
@@ -1882,9 +1882,19 @@
       "sha256": "721800a288b6bc0ca27273847554ad0accb5f5e58325ffbd7d35404fdddb1b58"
     },
     {
+      "path": "dist/progress-links.js",
+      "bytes": 3448,
+      "sha256": "9135e34bb4e1730a24ffd3f3e59d5aad855ff5423c58660ddb8cd5eff6e35026"
+    },
+    {
+      "path": "dist/quality-inspector.js",
+      "bytes": 1122,
+      "sha256": "4cd53e7450446eda7701b087684ae2f3339c2771464c80738c4a9092833b1f63"
+    },
+    {
       "path": "dist/responsive.css",
-      "bytes": 18911,
-      "sha256": "84688d68e48cafb88779d056e7d1fe97d06f99748db8fefc95c1f6544d0df159"
+      "bytes": 19740,
+      "sha256": "aefb79c45b5410b50c77f3a90314fcfd94bf33ff1d1a45fdd4db8cb775ed13b8"
     },
     {
       "path": "dist/responsive.js",
@@ -1903,13 +1913,18 @@
     },
     {
       "path": "dist/scene-light-budget.js",
-      "bytes": 957,
-      "sha256": "c9cfe17bf978bd7c051c2f6dd58a514772268c426606ebff48d7d9b44c920159"
+      "bytes": 1030,
+      "sha256": "546942e0f96b35f3c136457d7219be1566d99057547bcc0da55146a06abcac61"
     },
     {
       "path": "dist/scene-outline.js",
       "bytes": 4235,
       "sha256": "c2f89c9e8e5b46bec05193f7c1e8f556708d72a6c2c88a41a3124f6e1e7682f9"
+    },
+    {
+      "path": "dist/scene-quality.js",
+      "bytes": 1102,
+      "sha256": "1330ed34c6d89a76abe1d813eae1178dee194316504462d523d10f70177e70a3"
     },
     {
       "path": "dist/sky-light.js",
@@ -1943,8 +1958,8 @@
     },
     {
       "path": "dist/village-progress-ui.js",
-      "bytes": 11815,
-      "sha256": "ae08835cb16bcd9b9d5eb25c4d173136d918dcda35424113cd305455ccf62f94"
+      "bytes": 12300,
+      "sha256": "b2583456fb97465226e8153e115cfbffdaefd57da7d02916b479e2a8d67fda09"
     },
     {
       "path": "dist/village-progression.js",
@@ -1953,8 +1968,8 @@
     },
     {
       "path": "dist/village3d.js",
-      "bytes": 82550,
-      "sha256": "992d729a36c790f034514b6a1260073c47602ed35cc3c0a1ac554b81409a27d5"
+      "bytes": 83042,
+      "sha256": "a2b10e358d42e69bbcd77d727883187d058e215a1f26e5ca3cb48256bc9f2263"
     },
     {
       "path": "dist/warrior-controller.js",
@@ -1963,8 +1978,13 @@
     },
     {
       "path": "dist/water-environment.js",
-      "bytes": 5746,
-      "sha256": "fe1d19767723441d1743e6d269bd8388d0ce7057cfe3f63a5b2f2f0e46bf651f"
+      "bytes": 5878,
+      "sha256": "9d94275a839257dc9a596bb8d07f364ac5de19853d3d50e05934675e65ca9bed"
+    },
+    {
+      "path": "docs/INTEGRATION-REPORT-v185.md",
+      "bytes": 13748,
+      "sha256": "158892cc521303b54491567edb5e1034ada66c3ad414d0025e16ed5583365080"
     },
     {
       "path": "docs/forest-stream-v184.md",
@@ -2122,14 +2142,19 @@
       "sha256": "02d14ddd62a0c123981e1f0bd2a71fff17253a260447ce25ac4d04952367128b"
     },
     {
+      "path": "tests/progress-links-regression.cjs",
+      "bytes": 2374,
+      "sha256": "1032175cbf5dd9aada0643f0717d0eba611c0fe2767288b0f24021043e08ddbf"
+    },
+    {
       "path": "tests/responsive-regression.cjs",
       "bytes": 2574,
       "sha256": "cb995c021c8738d3aa5f53de9d06fbc336b4e37648a4af3fd66013161ec7effc"
     },
     {
       "path": "tests/scene-light-budget.cjs",
-      "bytes": 1733,
-      "sha256": "64947952b4d31932952391875e5ae8e4a542dbd57baf49f68c3f0c242f358b18"
+      "bytes": 1956,
+      "sha256": "cb5ecd7dd0ce902bb3022a94ecc5e41a861e519061bfffaaaad39564bc86b2df"
     },
     {
       "path": "tests/state-regression.cjs",

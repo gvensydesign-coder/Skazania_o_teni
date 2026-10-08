@@ -24,5 +24,6 @@ window.createAuthoredForest=async function(T,api){
  function unplant(created){for(const batch of created){batch.mesh.parent?.remove(batch.mesh);batch.mesh.dispatchEvent({type:'dispose'});const i=batches.indexOf(batch);if(i>=0)batches.splice(i,1)}}
  const frustum=new T.Frustum(),matrix=new T.Matrix4();
  function update(dt,camera,pan,zoom,sky,key){clock.value+=dt;rimColor.value.copy(sky).lerp(key,.3);rimPower.value=.55;camera.updateMatrixWorld();matrix.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);frustum.setFromProjectionMatrix(matrix);for(const b of batches){b.mesh.visible=frustum.intersectsBox(b.bounds);const d=Math.hypot(b.center.x-pan.x,b.center.z-pan.z),lod=zoom>1.2&&d<28?'full':d<58?'mid':'far';if(b.mesh.geometry!==b.geometry[lod])b.mesh.geometry=b.geometry[lod];}}
- return {tree,bush,plant,unplant,update,variants};
+ function reflectionVisibility(camera){camera.updateMatrixWorld(true);const f=new T.Frustum().setFromProjectionMatrix(new T.Matrix4().multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse));const previous=batches.map(b=>b.mesh.visible);batches.forEach(b=>b.mesh.visible=f.intersectsBox(b.bounds));return ()=>batches.forEach((b,i)=>b.mesh.visible=previous[i]);}
+ return {tree,bush,plant,unplant,update,variants,reflectionVisibility};
 };
