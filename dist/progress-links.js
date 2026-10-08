@@ -9,6 +9,7 @@
  {id:'homes',title:'Дома и свидетельства',done:repairs.filter(r=>r.id==='house_ruin').length>=2&&(p.homeTalked||[]).length>=2,text:'Домов восстановлено: '+repairs.filter(r=>r.id==='house_ruin').length+'; хозяев выслушано: '+(p.homeTalked||[]).length+'.'},
  {id:'guards',title:'Дозорные посты',done:guards.length>=4,text:'Действующих постов: '+guards.length+' / 4.'},
  {id:'ritual',title:'След обряда',done:!!story.ritualMemoryCompleted,text:story.ritualMemoryCompleted?(story.ritualDismantled?'Круг разобран; порча земли остаётся.':'Воспоминание записано; круг можно разобрать.'):'Осмотри круг у лесной кромки.'},
+ {id:'resident-losses',title:'Жители и потери',done:(g.defense?.completed||0)>0,text:'Живых: '+(g.villagers||[]).filter(v=>v.alive!==false).length+'; погибших: '+(story.residentLosses||[]).length+'. Потери сокращают рабочие руки и усиливают следующие нападения.'},
  {id:'nights',title:'Защита Выселок',done:(g.defense?.completed||0)>=3,text:'Отражено ночей: '+(g.defense?.completed||0)+' / 3.'}
  ]};}
  root.ProgressLinks={snapshot};if(typeof module!=='undefined')module.exports=root.ProgressLinks;

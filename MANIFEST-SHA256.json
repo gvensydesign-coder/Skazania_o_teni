@@ -1,5 +1,5 @@
 {
-  "version": 187,
+  "version": 188,
   "files": [
     {
       "path": ".gitignore",
@@ -58,8 +58,8 @@
     },
     {
       "path": "dist/app.js",
-      "bytes": 177158,
-      "sha256": "1bbfefeec168a8621691c2d5c4059581e2585651f21b3d21e79ab5dca227cf17"
+      "bytes": 178968,
+      "sha256": "fcb1ba82adfa781f2a5aeea3d2f1f76f8dbd7626d2e35f74e9a0ded6428a6be5"
     },
     {
       "path": "dist/assets/bogatyr.png",
@@ -1293,13 +1293,13 @@
     },
     {
       "path": "dist/defense-rules.js",
-      "bytes": 8436,
-      "sha256": "25410e876dde7538824a36a02c063a9c9a53bcf8bbfe278984e7c166f28234f0"
+      "bytes": 9315,
+      "sha256": "1d6589c0cb75d6f5fbb7d0e8a040fb40f63c877102eb3eada08166094466c3a4"
     },
     {
       "path": "dist/defense-ui.js",
-      "bytes": 23272,
-      "sha256": "5a2f30b07f7082c3076b1aac22b4c2f3a3c585c4719411831788917223c881fc"
+      "bytes": 23699,
+      "sha256": "0be839b4d7b45f28d6362b4ae44a3e7081c1c689161d77cd4d8f7403829d6c2f"
     },
     {
       "path": "dist/defense.css",
@@ -1793,8 +1793,8 @@
     },
     {
       "path": "dist/index.html",
-      "bytes": 3087,
-      "sha256": "c1710db6cd832375167a8b3f93048876dad8977aceced74203efed260fca9d4e"
+      "bytes": 3197,
+      "sha256": "17c6fdeb3c82a94202eef65280e0750a365b9ede1329396941bc54e6bd7188ec"
     },
     {
       "path": "dist/logo-intro.js",
@@ -1883,13 +1883,18 @@
     },
     {
       "path": "dist/progress-links.js",
-      "bytes": 3448,
-      "sha256": "9135e34bb4e1730a24ffd3f3e59d5aad855ff5423c58660ddb8cd5eff6e35026"
+      "bytes": 3793,
+      "sha256": "26bc86e1ec081e84b60647892db03429ed2646a8fed5f1356c79ef02910ba922"
     },
     {
       "path": "dist/quality-inspector.js",
       "bytes": 1197,
       "sha256": "e3e9c65d690621885ace5140d44d6d5810902a07c24e5f1baa6bc921a322110d"
+    },
+    {
+      "path": "dist/resident-combat.js",
+      "bytes": 8420,
+      "sha256": "b3fbb5a57e1866666817550ac086f5f3e87a080acdb49d8d1c6da5ce35a4afde"
     },
     {
       "path": "dist/responsive.css",
@@ -1948,13 +1953,13 @@
     },
     {
       "path": "dist/village-defense.js",
-      "bytes": 21222,
-      "sha256": "3728f4880a6b64becb34f961ed671aaa0a679cdd31ea708655c95234c241f12f"
+      "bytes": 22234,
+      "sha256": "6eac70a0b28397bca354548b82d2e778e7e5c226fc83260858f00b8ccfd0c03e"
     },
     {
       "path": "dist/village-navigation.js",
-      "bytes": 5538,
-      "sha256": "1e8ff05b55cf49d12da1d289c343fd6aee91465f75f1fe0b4a292e5de63874ad"
+      "bytes": 5806,
+      "sha256": "d804ad76a2b40b771468970981467dc0fb4ab130e9ae87112de45c00175416d9"
     },
     {
       "path": "dist/village-progress-ui.js",
@@ -1967,9 +1972,14 @@
       "sha256": "b2aa8de1594693fe693901e0d7621f397412d2479c882665ba4dd8a1399bdb2b"
     },
     {
+      "path": "dist/village-residents.js",
+      "bytes": 3069,
+      "sha256": "74aefad03f6c042e34a3fc9bb1099e846b76eec19fffb78b2511057f50f4d128"
+    },
+    {
       "path": "dist/village3d.js",
-      "bytes": 83042,
-      "sha256": "a2b10e358d42e69bbcd77d727883187d058e215a1f26e5ca3cb48256bc9f2263"
+      "bytes": 83863,
+      "sha256": "a6a36103c25a5eecc18c413bd9336c013927083c1502dc805656b1191d72cc9f"
     },
     {
       "path": "dist/warrior-controller.js",
@@ -1985,6 +1995,11 @@
       "path": "docs/INTEGRATION-REPORT-v185.md",
       "bytes": 16167,
       "sha256": "2ee9afaef6ca9a5d338bb589511fcce147fb2da6f993b35f68df1a38a1f88049"
+    },
+    {
+      "path": "docs/RESIDENT-COMBAT-TEMPLATE-v188.md",
+      "bytes": 11284,
+      "sha256": "7d8e3344535751baa45e37d8ba0a8e469de99fab878d728c1064d08cc9d7da8c"
     },
     {
       "path": "docs/forest-stream-v184.md",
@@ -2013,8 +2028,8 @@
     },
     {
       "path": "handoff/PROJECT-KNOWLEDGE.md",
-      "bytes": 8675,
-      "sha256": "b8b21679456514d5025466692f510a48c697aa1aac876fdc29283cf446e4d0c3"
+      "bytes": 9740,
+      "sha256": "991006acafaa6dfeb2e9ae7478c145c2a32b17dc7fcd1e5ed745ec2ecfadc3bf"
     },
     {
       "path": "handoff/SHADERS.md",
@@ -2150,6 +2165,16 @@
       "path": "tests/progress-links-regression.cjs",
       "bytes": 2374,
       "sha256": "1032175cbf5dd9aada0643f0717d0eba611c0fe2767288b0f24021043e08ddbf"
+    },
+    {
+      "path": "tests/resident-combat-regression.cjs",
+      "bytes": 5029,
+      "sha256": "3726fb6fa07da4da4a272212813a16885cfbc7021556d7a8ccb20b60c58fc96d"
+    },
+    {
+      "path": "tests/resident-scene-regression.cjs",
+      "bytes": 1364,
+      "sha256": "6523bceb942ccff827eac4b09b3846bcd4732fbfc92f08a6e4aa47bbb8697fa4"
     },
     {
       "path": "tests/responsive-regression.cjs",
