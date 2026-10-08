@@ -1,5 +1,5 @@
 {
-  "version": 188,
+  "version": 189,
   "files": [
     {
       "path": ".gitignore",
@@ -58,8 +58,8 @@
     },
     {
       "path": "dist/app.js",
-      "bytes": 178968,
-      "sha256": "fcb1ba82adfa781f2a5aeea3d2f1f76f8dbd7626d2e35f74e9a0ded6428a6be5"
+      "bytes": 179005,
+      "sha256": "6ead34670f33074db429815838afc70b92325740237403ec69c83dd2d71b3685"
     },
     {
       "path": "dist/assets/bogatyr.png",
@@ -1794,7 +1794,7 @@
     {
       "path": "dist/index.html",
       "bytes": 3197,
-      "sha256": "17c6fdeb3c82a94202eef65280e0750a365b9ede1329396941bc54e6bd7188ec"
+      "sha256": "5679aed39c032cc735f0717a153d44f7e9595235f3dea6c1869af66c2a9489ca"
     },
     {
       "path": "dist/logo-intro.js",
@@ -1968,8 +1968,8 @@
     },
     {
       "path": "dist/village-progression.js",
-      "bytes": 11423,
-      "sha256": "b2aa8de1594693fe693901e0d7621f397412d2479c882665ba4dd8a1399bdb2b"
+      "bytes": 11453,
+      "sha256": "c0627b482bacf61f656ae41e435e12080c9322da131200acd493491820815cdf"
     },
     {
       "path": "dist/village-residents.js",
@@ -1998,8 +1998,8 @@
     },
     {
       "path": "docs/RESIDENT-COMBAT-TEMPLATE-v188.md",
-      "bytes": 11284,
-      "sha256": "7d8e3344535751baa45e37d8ba0a8e469de99fab878d728c1064d08cc9d7da8c"
+      "bytes": 12443,
+      "sha256": "2400bea8c9141cb97f6c720a9bb492d9d0e8cc976dde64dc2ab6b678c83c728c"
     },
     {
       "path": "docs/forest-stream-v184.md",
@@ -2168,8 +2168,8 @@
     },
     {
       "path": "tests/resident-combat-regression.cjs",
-      "bytes": 5029,
-      "sha256": "3726fb6fa07da4da4a272212813a16885cfbc7021556d7a8ccb20b60c58fc96d"
+      "bytes": 6763,
+      "sha256": "0e1b97f35377224ff6b85de0ae9d4317f0389e7ef05fb71ec0a89242d746db30"
     },
     {
       "path": "tests/resident-scene-regression.cjs",
